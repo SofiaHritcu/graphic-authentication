@@ -1,1 +1,1 @@
-# graphic-authentication-front-end
+# graphic-authentication
