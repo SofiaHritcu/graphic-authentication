@@ -1,12 +1,19 @@
 <template>
-  <div class="app">
-    <router-view />
-  </div>
+  <v-app>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-.app {
-  height: 100%;
-  min-height: 100%;
-}
-</style>
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'App',
+
+  data: () => ({
+    //
+  }),
+});
+</script>
