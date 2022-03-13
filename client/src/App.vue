@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-main>
+  <v-app class="app">
+    <v-main class="blue-grey darken-4">
       <router-view/>
     </v-main>
   </v-app>
@@ -17,3 +17,10 @@ export default Vue.extend({
   }),
 });
 </script>
+
+<style lang="scss" scoped>
+.app {
+  height: 100%;
+  min-height: 100%;
+}
+</style>
