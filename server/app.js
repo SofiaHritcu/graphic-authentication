@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const passport = require('passport');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const authRoutes = require('./routes/api/authRoutes');
+const { addPassportStrategy } = require('./middleware/authMiddleware');
 
 // initialize the app
 const app = express();
@@ -20,6 +25,11 @@ app.use(bodyParser.json());
 // cors middleware
 app.use(cors());
 
+// passport middleware
+app.use(passport.initialize());
+// bring in the passport strategy
+addPassportStrategy(passport);
+
 // setting up the static directory static directory
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -32,6 +42,13 @@ mongoose.connect(db, {
 }).catch(err => {
     console.log('Unable to connect to the database!');
 });
+
+// add swagger documentation
+const apiDocs = require('./swagger.json');
+app.use('/ga/api/api-docs', swaggerUi.serve, swaggerUi.setup(apiDocs, { explorer: true }));
+
+// add users routes
+app.use('/ga/api/users', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
