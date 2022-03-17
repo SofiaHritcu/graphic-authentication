@@ -90,6 +90,7 @@ module.exports.login_post =  (req, res) => {
                 jwt.sign(payload, key, { expiresIn: 1000 * 60 * 60 * 24 }, (err, token) => {
                     res.status(200).json({
                         success: true,
+                        user,
                         token: `Bearer ${token}`,
                         msg: "The user is now logged in.",
                     });
