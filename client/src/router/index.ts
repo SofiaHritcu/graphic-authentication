@@ -1,16 +1,49 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import { GA_ROUTE_NAME } from "@/config/consts";
+import { 
+  GA_ROUTE_NAME,
+  GA_WELCOME_ROUTE_NAME,
+  GA_SIGNUP_ROUTE_NAME,
+  GA_LOGIN_ROUTE_NAME,
+  GA_LEARN_MORE_ROUTE_NAME,
+} from "@/config/consts";
 
 const WrapperView = () => import('@/views/wrapper-view.vue');
+const LandingView = () => import('@/views/landing-view.vue');
+const SignUpView = () => import('@/views/signup-view.vue');
+const LoginView = () => import('@/views/login-view.vue');
+const LearnMoreView = () => import('@/views/learn-more-view.vue');
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/ga",
+    path: '/ga',
     name: GA_ROUTE_NAME,
     component: WrapperView,
+    redirect: '/ga/welcome',
+    children: [
+      {
+        path: '/ga/welcome',
+        name: GA_WELCOME_ROUTE_NAME,
+        component: LandingView,
+      },
+      {
+        path: '/ga/signup',
+        name: GA_SIGNUP_ROUTE_NAME,
+        component: SignUpView,
+      },
+      {
+        path: '/ga/login',
+        name: GA_LOGIN_ROUTE_NAME,
+        component: LoginView,
+      },
+      {
+        path: '/ga/learn',
+        name: GA_LEARN_MORE_ROUTE_NAME,
+        component: LearnMoreView,
+      },
+    ]
   },
 ];
 

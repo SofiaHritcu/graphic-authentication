@@ -8,18 +8,32 @@
       >
         IPass
       </div>
-      <div><v-btn outlined color="teal lighten-2" x-large class="mt-3 mb-3">Sign Up</v-btn></div>
-      <div><v-btn outlined color="deep-orange lighten-1" x-large class="mb-3">Log In</v-btn></div>
-      <div><v-btn outlined color="yellow lighten-2" x-large>Learn More</v-btn></div>
+      <div><v-btn outlined color="teal lighten-2" x-large class="mt-3 mb-3" @click="handleButtonClick(signupRouteName)">Sign Up</v-btn></div>
+      <div><v-btn outlined color="deep-orange lighten-1" x-large class="mb-3" @click="handleButtonClick(loginRouteName)">Log In</v-btn></div>
+      <div><v-btn outlined color="yellow lighten-2" x-large @click="handleButtonClick(learnMoreRouteName)">Learn More</v-btn></div>
     </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import Vue from 'vue';
+  import { GA_SIGNUP_ROUTE_NAME, GA_LOGIN_ROUTE_NAME, GA_LEARN_MORE_ROUTE_NAME } from '@/config/consts';
 
   export default Vue.extend({
     name: 'GALandingView',
+    data() {
+      return {
+        signupRouteName: GA_SIGNUP_ROUTE_NAME,
+        loginRouteName: GA_LOGIN_ROUTE_NAME,
+        learnMoreRouteName: GA_LEARN_MORE_ROUTE_NAME,
+      };
+    },
+
+    methods: {
+      handleButtonClick(routeName: string) {
+        this.$router.push({ name: routeName });
+      },
+    }
   })
 </script>
 
