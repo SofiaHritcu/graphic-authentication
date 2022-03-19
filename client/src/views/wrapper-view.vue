@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="ga__wrapper-view__container">
+  <v-container fluid class="ga__wrapper-view__container mt-10">
     <router-view />
   </v-container>
 </template>
@@ -15,7 +15,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ga__wrapper-view__container {
-  height: 100%;
+  height: calc(100% - 40px);
   padding: 0;
 }
 </style>
