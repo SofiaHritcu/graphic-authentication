@@ -14,6 +14,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+* {
+  user-select: none;
+}
 .ga__wrapper-view__container {
   height: calc(100% - 40px);
   padding: 0;
