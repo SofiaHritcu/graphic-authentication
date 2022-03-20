@@ -7,6 +7,7 @@ const passport = require('passport');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const authRoutes = require('./routes/api/authRoutes');
+const iconsRoutes = require('./routes/api/iconsRoutes');
 const { addPassportStrategy } = require('./middleware/authMiddleware');
 
 // initialize the app
@@ -49,6 +50,9 @@ app.use('/ga/api/api-docs', swaggerUi.serve, swaggerUi.setup(apiDocs, { explorer
 
 // add users routes
 app.use('/ga/api/users', authRoutes);
+
+// add icons routes
+app.use('/ga/api/icons', iconsRoutes);
 
 const PORT = process.env.PORT || 5000;
 
