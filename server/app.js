@@ -54,6 +54,15 @@ app.use('/ga/api/users', authRoutes);
 // add icons routes
 app.use('/ga/api/icons', iconsRoutes);
 
+// handle production
+if(process.env.NODE_ENV === 'production') {
+    // static folder
+    app.use(express.static(__dirname+'/public'));
+
+    // handle SPA
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+}
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));

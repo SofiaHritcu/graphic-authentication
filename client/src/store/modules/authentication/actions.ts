@@ -6,7 +6,7 @@ export const fetchLogin: ActionHandler<GA.AuthenticationState, GA.RootState> = a
   user: GA.UserBase,
 ): Promise<void> => {
   commit('setAuthRequest');
-  const response = await axios.post('http://localhost:5000/ga/api/users/login', user);
+  const response = await axios.post('/ga/api/users/login', user);
   if(response.data.success) {
     const gaToken = response.data.token;
     const user = response.data.user;
