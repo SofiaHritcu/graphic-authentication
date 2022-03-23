@@ -25,6 +25,8 @@ declare module GA {
     }
 
     export interface IconCategoryBase {
+        _id: string,
         category: string,
+        icons: string[],
     }
 };

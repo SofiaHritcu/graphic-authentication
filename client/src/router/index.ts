@@ -20,7 +20,7 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/ga',
+    path: '',
     name: GA_ROUTE_NAME,
     component: WrapperView,
     redirect: '/ga/welcome',
