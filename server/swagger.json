@@ -96,7 +96,26 @@
                     }
                 }
             } 
-        } 
+        },
+        "/icons/icons_categories": {
+            "get": {
+                "tags": [
+                    "icons"
+                ],
+                "description": "Get the categories of icons.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The existing categories of icons.",
+                        "schema": {
+                            "$ref": "#/definitions/IconCategories"
+                        }
+                    }
+                }
+            } 
+        }
     },
     "definitions": {
         "User": {
@@ -150,9 +169,32 @@
                 }
             }
         },
+        "IconCategory": {
+            "required": [
+                "_id",
+                "category",
+                "icons"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "category": {
+                    "type": "string"
+                },
+                "icons": {
+                    "type": "string[]"
+                }
+            }
+        },
         "Users": {
             "type": "array",
             "$ref": "#/definitions/User"
+        },
+        "IconCategories": {
+            "type": "array",
+            "$ref": "#/definitions/IcontCategory"
         }
     }
   }
