@@ -11,7 +11,7 @@ import {
 
 const WrapperView = () => import("@/views/wrapper-view.vue");
 const LandingView = () => import("@/views/landing-view.vue");
-const SignUpView = () => import("@/views/signup-view.vue");
+const SignUpView = () => import("@/views/signup/signup-view.vue");
 const LoginView = () => import("@/views/login/login-view.vue");
 const LoginIconView = () => import("@/views/login/login-icon-view.vue");
 const LearnMoreView = () => import("@/views/learn-more-view.vue");
