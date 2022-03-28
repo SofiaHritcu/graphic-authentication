@@ -244,7 +244,7 @@ export default Vue.extend({
       this.fetchIconsCategories().then((res) => {
         if (res) {
           this.iconCategoriesItems = this.iconsCategories.map(
-            (ic: any) => ic.category
+            (ic: GA.IconCategoryBase) => ic.category
           );
           this.iconItems = this.iconsCategories[0].icons;
         }
@@ -261,7 +261,7 @@ export default Vue.extend({
       }
 
       const iconsSelectedCategory = this.iconsCategories.find(
-        (ic: any) => ic.category === iconCategorySelected
+        (ic: GA.IconCategoryBase) => ic.category === iconCategorySelected
       ).icons;
       this.iconItems = iconsSelectedCategory;
     },
