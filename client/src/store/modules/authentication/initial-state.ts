@@ -1,8 +1,8 @@
 export const initialState: GA.AuthenticationState = {
-  gaToken: localStorage.getItem('GA-token') || '',
+  gaToken: localStorage.getItem("GA-token") || "",
   user: {
-    userName: '',
-    password: '',
+    userName: "",
+    password: "",
   },
-  status: '',
+  status: "",
 };

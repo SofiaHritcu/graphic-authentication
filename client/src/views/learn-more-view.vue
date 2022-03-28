@@ -1,25 +1,17 @@
 <template>
-    <div>
-        welcome to learning!
-    </div>
+  <div>welcome to learning!</div>
 </template>
 
 <script>
 export default {
-    name: 'GALearnMoreView',
+  name: "GALearnMoreView",
 
-    data() {
-        return {
-            
-        };
-    },
+  data() {
+    return {};
+  },
 
-    methods: {
-        
-    },
+  methods: {},
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -3,12 +3,25 @@
     <v-row class="ga__login_icon_view__title_row">
       <v-btn outlined :color="`teal darken-2`" @click="handleBackBtnClick">
         Go Back To Choose IPASS
-        <fa-icon class="ml-2" icon="fa-solid fa-arrow-rotate-left" color="#00796B" size="lg"/>
+        <fa-icon
+          class="ml-2"
+          icon="fa-solid fa-arrow-rotate-left"
+          color="#00796B"
+          size="lg"
+        />
       </v-btn>
     </v-row>
-    <v-row class="ga__login_icon_view__title" align-content="center" justify="center">
+    <v-row
+      class="ga__login_icon_view__title"
+      align-content="center"
+      justify="center"
+    >
       <v-col :cols="12">
-        <div class="text-overline white--text text--darken-1 ga__login_icon_view__title__text">Login</div>
+        <div
+          class="text-overline white--text text--darken-1 ga__login_icon_view__title__text"
+        >
+          Login
+        </div>
       </v-col>
     </v-row>
     <v-row class="ga__login_icon_view__content">
@@ -46,15 +59,21 @@
               ></v-select>
             </v-col>
           </v-row>
-          <v-row :class="[{ 'hidden': logoVisible }]">
+          <v-row :class="[{ hidden: logoVisible }]">
             <v-col :cols="12" class="ga__login_icon_view__icons_title">
               <div class="grey--text text--darken-1" v-if="!passIsComplete">
-                Choose icons for your 
-                <span class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass">IPASS</span>
+                Choose icons for your
+                <span
+                  class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass"
+                  >IPASS</span
+                >
               </div>
               <div class="grey--text text--darken-1" v-if="passIsComplete">
                 Your
-                <span class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass">IPASS</span>
+                <span
+                  class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass"
+                  >IPASS</span
+                >
                 is complete!
               </div>
               <div class="grey--text text--darken-1 mt-4" v-if="passIsComplete">
@@ -65,7 +84,7 @@
                   size="3x"
                   pulsate
                 />
-                <span 
+                <span
                   :class="`text-overline font-weight-light ${iconPassStrengthInterval.vColor}--text text--${iconPassStrengthInterval.vOpacity} ga__login_icon_view__qualifier`"
                 >
                   {{ iconPassStrengthInterval.qualifying }}
@@ -73,10 +92,12 @@
               </div>
             </v-col>
           </v-row>
-          <v-row :class="['ga__login_icon_view__icons_row', { 'hidden': logoVisible }]">
-            <v-col 
+          <v-row
+            :class="['ga__login_icon_view__icons_row', { hidden: logoVisible }]"
+          >
+            <v-col
               :cols="2"
-              v-for="(iconPass,index) in iconPasses"
+              v-for="(iconPass, index) in iconPasses"
               :key="index"
               class="ga__login_icon_view__icon"
             >
@@ -93,35 +114,66 @@
         </v-form>
       </v-col>
       <v-col :cols="12" :lg="6" class="ga__login_icon_view__icons">
-        <v-row v-if="passIsComplete" justify="center" class="ga__login_icon_view__controls">
-          <div v-if="onLargerViewPort" class="text-overline font-weight-light white--text break">What next ?</div>
-          <v-btn outlined :color="`teal darken-2`" ref="loginFormBtn" @click="handleLoginBtnClick" class="mr-sm-4 mb-xs-4">
+        <v-row
+          v-if="passIsComplete"
+          justify="center"
+          class="ga__login_icon_view__controls"
+        >
+          <div
+            v-if="onLargerViewPort"
+            class="text-overline font-weight-light white--text break"
+          >
+            What next ?
+          </div>
+          <v-btn
+            outlined
+            :color="`teal darken-2`"
+            ref="loginFormBtn"
+            @click="handleLoginBtnClick"
+            class="mr-sm-4 mb-xs-4"
+          >
             Login
           </v-btn>
           <div class="ga__login_icon_view__controls__separator">/</div>
-          <v-btn outlined :color="`teal darken-2`" @click="handleClearBtnClick" class="ml-sm-4">
+          <v-btn
+            outlined
+            :color="`teal darken-2`"
+            @click="handleClearBtnClick"
+            class="ml-sm-4"
+          >
             Clear PASS
           </v-btn>
         </v-row>
         <v-row class="ga__login_icon_view__icons__row" v-else>
-          <v-col :cols="3" v-for="(iconItem, index) in iconItems" :key="index" align-self="center">
-            <div class="ga__login_icon_view__icon_wrapper" @click="handleIconClick(iconItem)">
+          <v-col
+            :cols="3"
+            v-for="(iconItem, index) in iconItems"
+            :key="index"
+            align-self="center"
+          >
+            <div
+              class="ga__login_icon_view__icon_wrapper"
+              @click="handleIconClick(iconItem)"
+            >
               <fa-icon
                 :icon="`fa-solid fa-${iconItem}`"
                 color="white"
                 :size="getSelectableIconsSize"
               />
             </div>
-        </v-col>
+          </v-col>
         </v-row>
       </v-col>
     </v-row>
-    <div :class="['ga__login_icon_view__logo_container', { 'hidden': !logoIsVisible }]"> 
+    <div
+      :class="[
+        'ga__login_icon_view__logo_container',
+        { hidden: !logoIsVisible },
+      ]"
+    >
       <div class="ga__login_icon_view__logo"></div>
     </div>
-    <v-snackbar
-      v-model="loginErrorShows"
-    >
+    <v-snackbar v-model="loginErrorShows">
       {{ loginErrorMsg }}
       <template v-slot:action="{ attrs }">
         <v-btn
@@ -139,23 +191,31 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { mapActions, mapGetters } from 'vuex';
-import { GA_LOGIN_ROUTE_NAME, ICONS_PASS_COUNT, GA_WELCOME_ROUTE_NAME } from '@/config/consts';
-import { INVALID_USERNAME_MSG, LOGIN_FAILED_MSG } from '@/config/error-messages';
-import { transformIconPass } from '@/utils/icon-pass-transform';
-import { getIconPassStrengthInterval } from '@/utils/pass-strength-color';
+import Vue from "vue";
+import { mapActions, mapGetters } from "vuex";
+import {
+  GA_LOGIN_ROUTE_NAME,
+  ICONS_PASS_COUNT,
+  GA_WELCOME_ROUTE_NAME,
+} from "@/config/consts";
+import {
+  INVALID_USERNAME_MSG,
+  LOGIN_FAILED_MSG,
+} from "@/config/error-messages";
+import { transformIconPass } from "@/utils/icon-pass-transform";
+import { getIconPassStrengthInterval } from "@/utils/pass-strength-color";
 
 export default Vue.extend({
-  name: 'GALoginIconView',
+  name: "GALoginIconView",
   data() {
     return {
       validLoginForm: false,
-      loginFormRef: 'loginFormRef',
-      userName: '',
+      loginFormRef: "loginFormRef",
+      userName: "",
       userNameRules: [
-        (v: string) => !!v || 'username is required',
-        (v: string) => v.length <= 10 || 'username must be less than 10 characters',
+        (v: string) => !!v || "username is required",
+        (v: string) =>
+          v.length <= 10 || "username must be less than 10 characters",
       ],
       iconCategoriesItems: [],
       logoVisible: true,
@@ -163,10 +223,10 @@ export default Vue.extend({
       iconPasses: [] as any,
       iconItems: [],
       iconPassLastCompletedIndex: 0,
-      passAfterTransformation: '',
+      passAfterTransformation: "",
       iconPassStrengthInterval: null as any,
       loginErrorShows: false,
-      loginErrorMsg: 'Invalid username!',
+      loginErrorMsg: "Invalid username!",
     };
   },
   async created() {
@@ -174,51 +234,64 @@ export default Vue.extend({
     await this.setUpIconsCategories();
   },
   methods: {
-    ...mapActions('icons', ['fetchIconsCategories']),
-    ...mapActions('authentication', ['fetchLogin']),
+    ...mapActions("icons", ["fetchIconsCategories"]),
+    ...mapActions("authentication", ["fetchLogin"]),
 
     async handleBackBtnClick() {
       await this.$router.push({ name: GA_LOGIN_ROUTE_NAME });
     },
     async setUpIconsCategories() {
-      this.fetchIconsCategories().then(res => {
-        if(res) {
-          this.iconCategoriesItems = this.iconsCategories.map((ic: any) => ic.category);
+      this.fetchIconsCategories().then((res) => {
+        if (res) {
+          this.iconCategoriesItems = this.iconsCategories.map(
+            (ic: any) => ic.category
+          );
           this.iconItems = this.iconsCategories[0].icons;
         }
-      })
+      });
     },
     setUpDefaultIconsPass() {
       for (let index = 0; index < this.iconPassCount; index++) {
-        this.iconPasses.push('');
+        this.iconPasses.push("");
       }
     },
     handleIconCategoryChange(iconCategorySelected: string) {
-      if(this.logoVisible) {
+      if (this.logoVisible) {
         this.logoVisible = false;
       }
 
-      const iconsSelectedCategory = this.iconsCategories.find((ic: any) => ic.category === iconCategorySelected).icons;
+      const iconsSelectedCategory = this.iconsCategories.find(
+        (ic: any) => ic.category === iconCategorySelected
+      ).icons;
       this.iconItems = iconsSelectedCategory;
     },
     handleIconClick(iconItem: string) {
-      if(this.logoVisible) {
+      if (this.logoVisible) {
         this.logoVisible = false;
       }
-      if(this.iconPassLastCompletedIndex < this.iconPassCount - 1) { 
-        this.iconPasses = {...this.iconPasses, [this.iconPassLastCompletedIndex]: iconItem};
+      if (this.iconPassLastCompletedIndex < this.iconPassCount - 1) {
+        this.iconPasses = {
+          ...this.iconPasses,
+          [this.iconPassLastCompletedIndex]: iconItem,
+        };
         this.iconPassLastCompletedIndex++;
       } else {
-        this.iconPasses = {...this.iconPasses, [this.iconPassLastCompletedIndex]: iconItem};
+        this.iconPasses = {
+          ...this.iconPasses,
+          [this.iconPassLastCompletedIndex]: iconItem,
+        };
         this.iconPassLastCompletedIndex++;
-        this.passAfterTransformation = transformIconPass(Object.assign([], this.iconPasses));
-        this.iconPassStrengthInterval = getIconPassStrengthInterval(this.passAfterTransformation);
+        this.passAfterTransformation = transformIconPass(
+          Object.assign([], this.iconPasses)
+        );
+        this.iconPassStrengthInterval = getIconPassStrengthInterval(
+          this.passAfterTransformation
+        );
       }
     },
     handleClearBtnClick() {
-      this.userName = '';
-      this.iconPasses =  [] as any,
-      this.iconPassLastCompletedIndex = 0;
+      this.userName = "";
+      (this.iconPasses = [] as any), (this.iconPassLastCompletedIndex = 0);
       this.setUpDefaultIconsPass();
     },
     async submitLogin() {
@@ -228,7 +301,7 @@ export default Vue.extend({
       };
       try {
         let authSuccess = await this.fetchLogin(userToBeLoggedIn);
-        if(authSuccess) {
+        if (authSuccess) {
           this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
         }
       } catch (err) {
@@ -239,20 +312,23 @@ export default Vue.extend({
     handleLoginBtnClick() {
       // @ts-ignore
       const isFormValid = this.$refs.loginFormRef.validate();
-      if(!isFormValid) {
+      if (!isFormValid) {
         this.loginErrorShows = true;
         this.loginErrorMsg = INVALID_USERNAME_MSG;
         // @ts-ignore
-        this.$refs.loginFormRef.reset()
-      }else {
+        this.$refs.loginFormRef.reset();
+      } else {
         this.submitLogin();
       }
-    }
+    },
   },
   computed: {
-    ...mapGetters('icons', ['iconsCategories']),
+    ...mapGetters("icons", ["iconsCategories"]),
     onLargerViewPort(): boolean {
-      return this.$vuetify.breakpoint.name === 'lg' || this.$vuetify.breakpoint.name === 'xl'
+      return (
+        this.$vuetify.breakpoint.name === "lg" ||
+        this.$vuetify.breakpoint.name === "xl"
+      );
     },
     iconsScrollSize(): number {
       return this.onLargerViewPort ? 400 : 200;
@@ -264,8 +340,8 @@ export default Vue.extend({
       return this.iconPassLastCompletedIndex === this.iconPassCount;
     },
     getSelectableIconsSize(): string {
-      return this.onLargerViewPort ? '2x' : 'lg';
-    }
+      return this.onLargerViewPort ? "2x" : "lg";
+    },
   },
 });
 </script>
@@ -281,17 +357,17 @@ export default Vue.extend({
     text-align: center;
     margin: 0;
     &__text {
-        font-size: 3rem !important;
-        padding: 2% 0;
+      font-size: 3rem !important;
+      padding: 2% 0;
 
-        @media screen and (max-width: 600px) {
-            font-size: 2rem !important;
-            padding: 3% 0;
-        }
-        @media screen and (min-width: 600px) and (max-width: 1264px) {
-            font-size: 2rem !important;
-            padding: 3% 0;
-        }
+      @media screen and (max-width: 600px) {
+        font-size: 2rem !important;
+        padding: 3% 0;
+      }
+      @media screen and (min-width: 600px) and (max-width: 1264px) {
+        font-size: 2rem !important;
+        padding: 3% 0;
+      }
     }
   }
 
@@ -323,7 +399,7 @@ export default Vue.extend({
       position: relative;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1024px){
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
       height: 30%;
       width: 40%;
     }
@@ -333,7 +409,13 @@ export default Vue.extend({
     height: 100%;
     width: 50%;
     margin-left: 25%;
-    background: linear-gradient(90deg, #4DB6AC 0%, #9FA8DA 25%, #FF7043 50%, #FFF176 100%);
+    background: linear-gradient(
+      90deg,
+      #4db6ac 0%,
+      #9fa8da 25%,
+      #ff7043 50%,
+      #fff176 100%
+    );
 
     border-top-right-radius: 45% 70%;
     border-top-left-radius: 45% 70%;
@@ -343,7 +425,7 @@ export default Vue.extend({
       margin-left: 25%;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1024px){
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
       width: 80%;
       margin-left: 85%;
     }
@@ -351,7 +433,7 @@ export default Vue.extend({
 
   &__icons_title {
     text-align: center;
-    
+
     &__pass {
       font-size: 1.5rem !important;
       margin-left: 1%;
@@ -387,7 +469,7 @@ export default Vue.extend({
   }
 
   &__icon_wrapper {
-    background: #00796B;
+    background: #00796b;
     width: 100px;
     height: 100px;
     border-radius: 15%;
@@ -396,7 +478,7 @@ export default Vue.extend({
     justify-content: center;
     margin: auto;
     @media screen and (max-width: 768px) {
-       width: 50px;
+      width: 50px;
       height: 50px;
     }
   }
@@ -411,9 +493,9 @@ export default Vue.extend({
     width: 50%;
     margin: auto;
     align-items: center;
-    
+
     @media screen and (min-width: 1264px) {
-      background: linear-gradient(0deg, #80CBC4 0%, #26A69A 100%);
+      background: linear-gradient(0deg, #80cbc4 0%, #26a69a 100%);
       border-top-left-radius: 30% 20% !important;
       border-bottom-right-radius: 30% 20% !important;
     }
@@ -436,7 +518,7 @@ export default Vue.extend({
 
 .break {
   flex-basis: 100%;
-	height: 0;
+  height: 0;
   text-align: center;
 }
 </style>
