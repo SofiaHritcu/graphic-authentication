@@ -1,5 +1,6 @@
 <template>
   <div class="ga__login_view">
+    <app-menu color="orange" />
     <v-row
       class="ga__login_view__title"
       align-content="center"
@@ -63,8 +64,10 @@ import {
   GA_LOGIN_ICON_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
+import appMenu from "@/components/ui/app-menu.vue";
 
 export default Vue.extend({
+  components: { appMenu },
   name: "GALoginView",
 
   data() {

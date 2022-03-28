@@ -1,5 +1,6 @@
 <template>
   <div class="ga__signup_view">
+    <app-menu color="teal" />
     <v-row
       class="ga__signup_view__title"
       align-content="center"
@@ -63,8 +64,10 @@ import {
   GA_SIGNUP_ICON_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
+import appMenu from "@/components/ui/app-menu.vue";
 
 export default Vue.extend({
+  components: { appMenu },
   name: "GASignUpView",
 
   data() {
