@@ -152,7 +152,7 @@ export default Vue.extend({
   &__auth_cards {
     height: 60%;
     @media screen and (max-width: 600px) {
-      margin: 45% 2%;
+      margin: 55% 2%;
       height: 37%;
     }
     padding: 0 2%;

@@ -22,6 +22,19 @@ export const fetchLogin: ActionHandler<
   return response.data.success;
 };
 
+export const fetchSignup: ActionHandler<GA.AuthenticationState, GA.RootState> = async (
+  { commit },
+  user: GA.UserBase
+): Promise<void> => {
+  commit("setSignupRequest");
+  const response = await axios.post("/ga/api/users/signup", user);
+  if (response.data.success) {
+    commit("setSignupSucceeded");
+  }
+  return response.data.success;
+};
+
 export const actions: ActionTree<GA.AuthenticationState, GA.RootState> = {
   fetchLogin,
+  fetchSignup,
 };

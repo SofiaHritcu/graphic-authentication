@@ -6,7 +6,19 @@ export const setAuthRequest: Mutation<GA.AuthenticationState> = (
   state.status = "loading";
 };
 
+export const setSignupRequest: Mutation<GA.AuthenticationState> = (
+  state
+): void => {
+  state.status = "loading";
+};
+
 export const setAuthenticationSucceeded: Mutation<GA.AuthenticationState> = (
+  state
+): void => {
+  state.status = "success";
+};
+
+export const setSignupSucceeded: Mutation<GA.AuthenticationState> = (
   state
 ): void => {
   state.status = "success";
@@ -29,6 +41,8 @@ export const setUser: Mutation<GA.AuthenticationState> = (
 export const mutations: MutationTree<GA.AuthenticationState> = {
   setAuthRequest,
   setAuthenticationSucceeded,
+  setSignupRequest,
+  setSignupSucceeded,
   setGaToken,
   setUser,
 };

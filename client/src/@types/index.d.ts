@@ -21,9 +21,7 @@ declare module GA {
     name?: string;
     email?: string;
     password: string;
-    confirmPassword?: string;
   }
-
   export interface IconCategoryBase {
     _id: string;
     category: string;

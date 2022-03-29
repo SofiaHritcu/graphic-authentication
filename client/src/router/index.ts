@@ -7,11 +7,13 @@ import {
   GA_LOGIN_ROUTE_NAME,
   GA_LEARN_MORE_ROUTE_NAME,
   GA_LOGIN_ICON_ROUTE_NAME,
+  GA_SIGNUP_ICON_ROUTE_NAME,
 } from "@/config/consts";
 
 const WrapperView = () => import("@/views/wrapper-view.vue");
 const LandingView = () => import("@/views/landing-view.vue");
 const SignUpView = () => import("@/views/signup/signup-view.vue");
+const SignupIconView = () => import("@/views/signup/signup-icon-view.vue");
 const LoginView = () => import("@/views/login/login-view.vue");
 const LoginIconView = () => import("@/views/login/login-icon-view.vue");
 const LearnMoreView = () => import("@/views/learn-more-view.vue");
@@ -34,6 +36,11 @@ const routes: Array<RouteConfig> = [
         path: "/ga/signup",
         name: GA_SIGNUP_ROUTE_NAME,
         component: SignUpView,
+      },
+      {
+        path: "/ga/signup/icon",
+        name: GA_SIGNUP_ICON_ROUTE_NAME,
+        component: SignupIconView,
       },
       {
         path: "/ga/login",

@@ -47,10 +47,20 @@
           <v-btn
             outlined
             :color="`${card.colorClass} darken-2`"
-            @click="handleAuthCardClick(card.authMethod)"
+            @click="handleSignupCardClick(card.signupMethod)"
             class="ga__signup_view__auth_cards__card__button"
           >
             signup
+          </v-btn>
+          <div class="text-overline blue-grey--text mt-2">Already have an account?</div>
+          <v-btn
+            text
+            small
+            :color="`${card.colorClass} darken-2`"
+            @click="handleAuthCardClick(card.loginMethod)"
+            class="ga__signup_view__auth_cards__card__button"
+          >
+            login
           </v-btn>
         </v-card>
       </v-col>
@@ -61,6 +71,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {
+  GA_LOGIN_ICON_ROUTE_NAME,
   GA_SIGNUP_ICON_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
@@ -78,28 +89,32 @@ export default Vue.extend({
           // @ts-ignore
           avatar: require("@/assets/icon_pass.png"),
           colorClass: "teal",
-          authMethod: GA_SIGNUP_ICON_ROUTE_NAME,
+          signupMethod: GA_SIGNUP_ICON_ROUTE_NAME,
+          loginMethod: GA_LOGIN_ICON_ROUTE_NAME,
         },
         {
           title: "Other Pass",
           // @ts-ignore
           avatar: require("@/assets/to_be_implemented.png"),
           colorClass: "indigo",
-          authMethod: "",
+          signupMethod: "",
+          loginMethod: "",
         },
         {
           title: "Other Pass",
           // @ts-ignore
           avatar: require("@/assets/to_be_implemented.png"),
           colorClass: "deep-orange",
-          authMethod: "",
+          signupMethod: "",
+          loginMethod: "",
         },
         {
           title: "Other Pass",
           // @ts-ignore
           avatar: require("@/assets/to_be_implemented.png"),
           colorClass: "yellow",
-          authMethod: "",
+          signupMethod: "",
+          loginMethod: "",
         },
       ],
     };
@@ -109,14 +124,17 @@ export default Vue.extend({
     avatarSize(): number {
       return this.$vuetify.breakpoint.name === "sm" ||
         this.$vuetify.breakpoint.name === "xs"
-        ? 120
-        : 200;
+        ? 100
+        : 150;
     },
   },
 
   methods: {
-    async handleAuthCardClick(authMethod: string) {
-      await this.$router.push({ name: authMethod });
+    async handleSignupCardClick(signupMethod: string) {
+      await this.$router.push({ name: signupMethod });
+    },
+    async handleAuthCardClick(loginMethod: string) {
+      await this.$router.push({ name: loginMethod });
     },
     async handleIPassClick() {
       await this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
@@ -152,7 +170,7 @@ export default Vue.extend({
   &__auth_cards {
     height: 60%;
     @media screen and (max-width: 600px) {
-      margin: 45% 2%;
+      margin: 65% 2%;
       height: 37%;
     }
     padding: 0 2%;

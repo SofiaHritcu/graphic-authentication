@@ -1,5 +1,5 @@
 <template>
-  <div class="ga__app_menu">
+  <div class="ga__app_menu mb-4">
     <v-btn
       outlined
       :color="`${color} darken-2`"
@@ -51,10 +51,6 @@ export default Vue.extend({
     },
   },
 
-  created() {
-    console.log(this.$route);
-  },
-
   methods: {
     async handleAppMenuItemClick(routeName: string) {
       if (this.$route.name !== routeName) {
@@ -76,6 +72,10 @@ export default Vue.extend({
     border-right: transparent;
     width: auto;
     opacity: 0.5;
+
+    @media screen and (max-width: 600px) {
+      padding: 0 8px !important;
+    }
   }
 
   &__link--selected {
