@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LearnMore View snapshot should match snapshot 1`] = `
+<div>
+  <app-menu-stub
+    color="yellow"
+  />
+</div>
+`;

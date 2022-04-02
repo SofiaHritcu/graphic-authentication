@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing View snapshot should match snapshot 1`] = `
+<div
+  class="ga__login_view"
+>
+  <app-menu-stub
+    color="orange"
+  />
+   
+  <v-row
+    align-content="center"
+    class="ga__login_view__title"
+    justify="center"
+  >
+    <v-col
+      cols="12"
+    >
+      <div
+        class="text-md-h5 grey--text text--darken-1"
+      >
+        Choose an
+      </div>
+       
+      <div
+        class="text-overline font-weight-light white--text ga__login_view__title__text"
+      >
+        
+        IPass
+      
+      </div>
+    </v-col>
+  </v-row>
+   
+  <v-row
+    align-content="center"
+    class="ga__login_view__auth_cards"
+  >
+    <v-col
+      class="ga__login_view__auth_cards__container"
+      cols="6"
+      md="3"
+      sm="3"
+      xs="6"
+    >
+      <v-card
+        class="ga__login_view__auth_cards__card ga__login_view__auth_cards__card--teal"
+      >
+        <v-avatar
+          class="ga__login_view__auth_cards__card__avatar"
+          color="white"
+          size="200"
+        >
+          <img
+            src=""
+          />
+        </v-avatar>
+         
+        <v-card-text
+          class="text-overline ga__login_view__auth_cards__card__title"
+        >
+          
+          Icon Pass
+        
+        </v-card-text>
+         
+        <v-btn
+          class="ga__login_view__auth_cards__card__button"
+          color="teal darken-2"
+          outlined=""
+        >
+          
+          Login
+        
+        </v-btn>
+      </v-card>
+    </v-col>
+    <v-col
+      class="ga__login_view__auth_cards__container"
+      cols="6"
+      md="3"
+      sm="3"
+      xs="6"
+    >
+      <v-card
+        class="ga__login_view__auth_cards__card ga__login_view__auth_cards__card--indigo"
+      >
+        <v-avatar
+          class="ga__login_view__auth_cards__card__avatar"
+          color="white"
+          size="200"
+        >
+          <img
+            src=""
+          />
+        </v-avatar>
+         
+        <v-card-text
+          class="text-overline ga__login_view__auth_cards__card__title"
+        >
+          
+          Other Pass
+        
+        </v-card-text>
+         
+        <v-btn
+          class="ga__login_view__auth_cards__card__button"
+          color="indigo darken-2"
+          outlined=""
+        >
+          
+          Login
+        
+        </v-btn>
+      </v-card>
+    </v-col>
+    <v-col
+      class="ga__login_view__auth_cards__container"
+      cols="6"
+      md="3"
+      sm="3"
+      xs="6"
+    >
+      <v-card
+        class="ga__login_view__auth_cards__card ga__login_view__auth_cards__card--deep-orange"
+      >
+        <v-avatar
+          class="ga__login_view__auth_cards__card__avatar"
+          color="white"
+          size="200"
+        >
+          <img
+            src=""
+          />
+        </v-avatar>
+         
+        <v-card-text
+          class="text-overline ga__login_view__auth_cards__card__title"
+        >
+          
+          Other Pass
+        
+        </v-card-text>
+         
+        <v-btn
+          class="ga__login_view__auth_cards__card__button"
+          color="deep-orange darken-2"
+          outlined=""
+        >
+          
+          Login
+        
+        </v-btn>
+      </v-card>
+    </v-col>
+    <v-col
+      class="ga__login_view__auth_cards__container"
+      cols="6"
+      md="3"
+      sm="3"
+      xs="6"
+    >
+      <v-card
+        class="ga__login_view__auth_cards__card ga__login_view__auth_cards__card--yellow"
+      >
+        <v-avatar
+          class="ga__login_view__auth_cards__card__avatar"
+          color="white"
+          size="200"
+        >
+          <img
+            src=""
+          />
+        </v-avatar>
+         
+        <v-card-text
+          class="text-overline ga__login_view__auth_cards__card__title"
+        >
+          
+          Other Pass
+        
+        </v-card-text>
+         
+        <v-btn
+          class="ga__login_view__auth_cards__card__button"
+          color="yellow darken-2"
+          outlined=""
+        >
+          
+          Login
+        
+        </v-btn>
+      </v-card>
+    </v-col>
+  </v-row>
+</div>
+`;

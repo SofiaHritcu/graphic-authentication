@@ -83,21 +83,21 @@ export default Vue.extend({
         {
           title: "Other Pass",
           // @ts-ignore
-          avatar: require("@/assets/to_be_implemented.png"),
+          avatar: require("@/assets/icon_pass.png"),
           colorClass: "indigo",
           authMethod: "",
         },
         {
           title: "Other Pass",
           // @ts-ignore
-          avatar: require("@/assets/to_be_implemented.png"),
+          avatar: require("@/assets/icon_pass.png"),
           colorClass: "deep-orange",
           authMethod: "",
         },
         {
           title: "Other Pass",
           // @ts-ignore
-          avatar: require("@/assets/to_be_implemented.png"),
+          avatar: require("@/assets/icon_pass.png"),
           colorClass: "yellow",
           authMethod: "",
         },

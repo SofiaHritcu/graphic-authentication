@@ -1,7 +1,8 @@
 module.exports = {
+  setupFiles: ["<rootDir>/test/unit/setup.ts"],
   globals: {
     "vue-jest": {
-      babelConfig: false,
+      babelConfig: true,
     },
   },
   moduleFileExtensions: ["ts", "vue", "js", "json"],
@@ -13,6 +14,7 @@ module.exports = {
     ".*\\.vue$": "vue-jest",
     ".*\\.ts$": "ts-jest",
     ".*\\.(js)$": "babel-jest",
+    ".+\\.(css|scss|png|jpg|svg)$": "jest-transform-stub",
   },
   collectCoverage: true,
   snapshotSerializers: ["jest-serializer-vue"],
