@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="37.945">
+  <testsuite name="Wrapper View" errors="0" failures="0" skipped="0" timestamp="2022-04-02T21:04:10" time="6.129" tests="1">
+    <testcase classname="Wrapper View snapshot should match snapshot" name="Wrapper View snapshot should match snapshot" time="0.052">
+    </testcase>
+  </testsuite>
+  <testsuite name="Landing View" errors="0" failures="0" skipped="0" timestamp="2022-04-02T21:04:10" time="7.7" tests="2">
+    <testcase classname="Landing View snapshot should match snapshot" name="Landing View snapshot should match snapshot" time="0.062">
+    </testcase>
+    <testcase classname="Landing View methods handleButtonClick should execute router push with the right parameters" name="Landing View methods handleButtonClick should execute router push with the right parameters" time="0.016">
+    </testcase>
+  </testsuite>
+</testsuites>

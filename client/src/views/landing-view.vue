@@ -60,8 +60,8 @@ export default Vue.extend({
   },
 
   methods: {
-    handleButtonClick(routeName: string) {
-      this.$router.push({ name: routeName });
+    async handleButtonClick(routeName: string) {
+      await this.$router.push({ name: routeName });
     },
   },
 });

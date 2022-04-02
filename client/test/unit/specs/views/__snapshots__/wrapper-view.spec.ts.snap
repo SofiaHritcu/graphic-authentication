@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Wrapper View snapshot should match snapshot 1`] = `
+<v-container
+  class="ga__wrapper-view__container mt-10"
+  fluid=""
+>
+  <router-view />
+</v-container>
+`;
