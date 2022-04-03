@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import "regenerator-runtime/runtime";
 import LoginIconView from "@/views/login/login-icon-view.vue";
 import mockStore from "../../store/mocked-store-modules";
-import { iconsCategoriesMock } from "../../store/modules/icons/mock-data/mock";
+import { iconCategoriesSortedMock, iconsCategoriesMock } from "../../store/modules/icons/mock-data/mock";
 
 describe("Login Icon View", () => {
   let wrapper: any;
@@ -120,7 +120,7 @@ describe("Login Icon View", () => {
           "5": "",
         },
       });
-      const iconItem = iconsCategoriesMock[0].icons[0];
+      const iconItem = iconCategoriesSortedMock[0].icons[0];
 
       wrapper.vm.handleIconClick(iconItem);
 

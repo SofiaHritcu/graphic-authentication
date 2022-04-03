@@ -104,11 +104,11 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
               filled=""
               hint="Select the icons category in order to build up your pass"
               item-color="teal"
-              items="alphabet,animals,astronomy,automative,buildings"
+              items="buildings,astronomy,alphabet,animals,automative"
               label="icon category"
               persistent-hint=""
               required=""
-              value="alphabet"
+              value="buildings"
             />
           </v-col>
         </v-row>
@@ -223,7 +223,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-a"
+              icon="fa-solid fa-archway"
               size="2x"
             />
           </div>
@@ -237,7 +237,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-b"
+              icon="fa-solid fa-building"
               size="2x"
             />
           </div>
@@ -251,7 +251,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-c"
+              icon="fa-solid fa-building-columns"
               size="2x"
             />
           </div>
@@ -265,7 +265,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-d"
+              icon="fa-solid fa-campground"
               size="2x"
             />
           </div>
@@ -279,7 +279,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-e"
+              icon="fa-solid fa-church"
               size="2x"
             />
           </div>
@@ -293,7 +293,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-f"
+              icon="fa-solid fa-city"
               size="2x"
             />
           </div>
@@ -307,7 +307,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-g"
+              icon="fa-solid fa-dungeon"
               size="2x"
             />
           </div>
@@ -321,7 +321,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-h"
+              icon="fa-solid fa-hospital"
               size="2x"
             />
           </div>
@@ -335,7 +335,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-i"
+              icon="fa-solid fa-house"
               size="2x"
             />
           </div>
@@ -349,7 +349,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-j"
+              icon="fa-solid fa-igloo"
               size="2x"
             />
           </div>
@@ -363,7 +363,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-k"
+              icon="fa-solid fa-shop"
               size="2x"
             />
           </div>
@@ -377,7 +377,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           >
             <fa-icon
               color="white"
-              icon="fa-solid fa-l"
+              icon="fa-solid fa-vihara"
               size="2x"
             />
           </div>
