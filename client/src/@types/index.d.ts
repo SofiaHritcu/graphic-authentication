@@ -27,4 +27,10 @@ declare module GA {
     category: string;
     icons: string[];
   }
+
+  export interface MockStoreState extends GA.RootState {
+    version: string;
+    icons: IconsState;
+    authentication: AuthenticationState;
+  }
 }
