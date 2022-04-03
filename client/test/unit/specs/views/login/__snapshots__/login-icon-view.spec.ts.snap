@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Icon View snapshot should match snapshot 1`] = `
+<div
+  class="ga__login_icon_view"
+>
+  <v-row
+    class="ga__login_icon_view__title_row"
+  >
+    <v-btn
+      color="teal darken-2"
+      outlined=""
+    >
+      
+      Go Back To Choose IPASS
+      
+      <fa-icon
+        class="ml-2"
+        color="#00796B"
+        icon="fa-solid fa-arrow-rotate-left"
+        size="lg"
+      />
+    </v-btn>
+  </v-row>
+   
+  <v-row
+    align-content="center"
+    class="ga__login_icon_view__title"
+    justify="center"
+  >
+    <v-col
+      cols="12"
+    >
+      <div
+        class="text-overline white--text text--darken-1 ga__login_icon_view__title__text"
+      >
+        
+        Login
+      
+      </div>
+    </v-col>
+  </v-row>
+   
+  <v-row
+    class="ga__login_icon_view__content"
+  >
+    <v-col
+      cols="12"
+      lg="6"
+    >
+      <v-form>
+        <v-row
+          class="ga__login_icon_view__form_row"
+          justify="center"
+        >
+          <v-col
+            class="ga__login_icon_view__form_col"
+            cols="8"
+          >
+            <v-text-field
+              class="ga__login_icon_view__form_field"
+              color="teal"
+              counter="10"
+              dark=""
+              filled=""
+              label="user name"
+              required=""
+              rules="function (v) {
+          /* istanbul ignore next */
+          cov_tnpmhnuvo().f[2]++;
+          cov_tnpmhnuvo().s[15]++;
+          return (
+            /* istanbul ignore next */
+            (cov_tnpmhnuvo().b[0][0]++, !!v) ||
+            /* istanbul ignore next */
+            (cov_tnpmhnuvo().b[0][1]++, \\"username is required\\")
+          );
+        },function (v) {
+          /* istanbul ignore next */
+          cov_tnpmhnuvo().f[3]++;
+          cov_tnpmhnuvo().s[16]++;
+          return (
+            /* istanbul ignore next */
+            (cov_tnpmhnuvo().b[1][0]++, v.length <= 10) ||
+            /* istanbul ignore next */
+            (cov_tnpmhnuvo().b[1][1]++, \\"username must be less than 10 characters\\")
+          );
+        }"
+            />
+          </v-col>
+        </v-row>
+         
+        <v-row
+          class="ga__login_icon_view__form_row"
+          justify="center"
+        >
+          <v-col
+            class="ga__login_icon_view__form_col"
+            cols="8"
+          >
+            <v-select
+              color="teal"
+              dark=""
+              filled=""
+              hint="Select the icons category in order to build up your pass"
+              item-color="teal"
+              items="alphabet,animals,astronomy,automative,buildings"
+              label="icon category"
+              persistent-hint=""
+              required=""
+              value="alphabet"
+            />
+          </v-col>
+        </v-row>
+         
+        <v-row
+          class="hidden"
+        >
+          <v-col
+            class="ga__login_icon_view__icons_title"
+            cols="12"
+          >
+            <div
+              class="grey--text text--darken-1"
+            >
+              
+              Choose icons for your
+              
+              <span
+                class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass"
+              >
+                IPASS
+              </span>
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </v-col>
+        </v-row>
+         
+        <v-row
+          class="ga__login_icon_view__icons_row hidden"
+        >
+          <v-col
+            class="ga__login_icon_view__icon"
+            cols="2"
+          >
+            <div
+              class="ga__login_icon_view__icon__content"
+            >
+              <!---->
+            </div>
+          </v-col>
+          <v-col
+            class="ga__login_icon_view__icon"
+            cols="2"
+          >
+            <div
+              class="ga__login_icon_view__icon__content"
+            >
+              <!---->
+            </div>
+          </v-col>
+          <v-col
+            class="ga__login_icon_view__icon"
+            cols="2"
+          >
+            <div
+              class="ga__login_icon_view__icon__content"
+            >
+              <!---->
+            </div>
+          </v-col>
+          <v-col
+            class="ga__login_icon_view__icon"
+            cols="2"
+          >
+            <div
+              class="ga__login_icon_view__icon__content"
+            >
+              <!---->
+            </div>
+          </v-col>
+          <v-col
+            class="ga__login_icon_view__icon"
+            cols="2"
+          >
+            <div
+              class="ga__login_icon_view__icon__content"
+            >
+              <!---->
+            </div>
+          </v-col>
+          <v-col
+            class="ga__login_icon_view__icon"
+            cols="2"
+          >
+            <div
+              class="ga__login_icon_view__icon__content"
+            >
+              <!---->
+            </div>
+          </v-col>
+        </v-row>
+      </v-form>
+    </v-col>
+     
+    <v-col
+      class="ga__login_icon_view__icons"
+      cols="12"
+      lg="6"
+    >
+      <v-row
+        class="ga__login_icon_view__icons__row"
+      >
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-a"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-b"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-c"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-d"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-e"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-f"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-g"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-h"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-i"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-j"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-k"
+              size="2x"
+            />
+          </div>
+        </v-col>
+        <v-col
+          align-self="center"
+          cols="3"
+        >
+          <div
+            class="ga__login_icon_view__icon_wrapper"
+          >
+            <fa-icon
+              color="white"
+              icon="fa-solid fa-l"
+              size="2x"
+            />
+          </div>
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
+   
+  <div
+    class="ga__login_icon_view__logo_container"
+  >
+    <div
+      class="ga__login_icon_view__logo"
+    />
+  </div>
+   
+  <v-snackbar>
+    
+    Invalid username!
+    
+  </v-snackbar>
+</div>
+`;
