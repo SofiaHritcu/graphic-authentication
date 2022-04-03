@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="3" failures="0" errors="0" time="31.492">
-  <testsuite name="Landing View" errors="0" failures="0" skipped="0" timestamp="2022-04-02T22:24:59" time="7.71" tests="3">
-    <testcase classname="Landing View snapshot should match snapshot" name="Landing View snapshot should match snapshot" time="0.499">
+<testsuites name="jest tests" tests="7" failures="0" errors="0" time="30.233">
+  <testsuite name="Wrapper View" errors="0" failures="0" skipped="0" timestamp="2022-04-03T15:49:00" time="6.248" tests="1">
+    <testcase classname="Wrapper View snapshot should match snapshot" name="Wrapper View snapshot should match snapshot" time="0.033">
     </testcase>
-    <testcase classname="Landing View methods handleAuthCardClick should execute router push with the right parameters" name="Landing View methods handleAuthCardClick should execute router push with the right parameters" time="0.466">
+  </testsuite>
+  <testsuite name="LearnMore View" errors="0" failures="0" skipped="0" timestamp="2022-04-03T15:49:00" time="6.429" tests="1">
+    <testcase classname="LearnMore View snapshot should match snapshot" name="LearnMore View snapshot should match snapshot" time="0.028">
     </testcase>
-    <testcase classname="Landing View methods handleIPassClick should execute router push with welcome route name" name="Landing View methods handleIPassClick should execute router push with welcome route name" time="0.476">
+  </testsuite>
+  <testsuite name="Landing View" errors="0" failures="0" skipped="0" timestamp="2022-04-03T15:49:00" time="6.49" tests="2">
+    <testcase classname="Landing View snapshot should match snapshot" name="Landing View snapshot should match snapshot" time="0.058">
+    </testcase>
+    <testcase classname="Landing View methods handleButtonClick should execute router push with the right parameters" name="Landing View methods handleButtonClick should execute router push with the right parameters" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Landing View" errors="0" failures="0" skipped="0" timestamp="2022-04-03T15:49:00" time="10.127" tests="3">
+    <testcase classname="Landing View snapshot should match snapshot" name="Landing View snapshot should match snapshot" time="0.061">
+    </testcase>
+    <testcase classname="Landing View methods handleAuthCardClick should execute router push with the right parameters" name="Landing View methods handleAuthCardClick should execute router push with the right parameters" time="0.014">
+    </testcase>
+    <testcase classname="Landing View methods handleIPassClick should execute router push with welcome route name" name="Landing View methods handleIPassClick should execute router push with welcome route name" time="0.016">
     </testcase>
   </testsuite>
 </testsuites>
