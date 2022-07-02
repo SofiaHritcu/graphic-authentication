@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -83,41 +83,41 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ActionHandler, ActionTree } from "vuex";
-<span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
+import axios from "axios";
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >fetchIconsCategories: ActionHandler&lt;</span>
+export const fetchIconsCategories: ActionHandler&lt;
   GA.IconsState,
   GA.RootState
-&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>({ commit }): Promise&lt;void&gt; =&gt; {</span>
-  const response = <span class="cstat-no" title="statement not covered" >await axios.get("/ga/api/icons/icons_categories");</span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (response.data.success) {</span>
-    const iconsCategories = <span class="cstat-no" title="statement not covered" >response.data.iconsCategories;</span>
+&gt; = async ({ commit }): Promise&lt;void&gt; =&gt; {
+  const response = await axios.get("/ga/api/icons/icons_categories");
+  if (response.data.success) {
+    const iconsCategories = response.data.iconsCategories;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    commit("setIconsCategories", iconsCategories);</span>
+    commit("setIconsCategories", iconsCategories);
   }
-<span class="cstat-no" title="statement not covered" >  return response.data.success;</span>
+  return response.data.success;
 };
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >actions: ActionTree&lt;GA.IconsState, GA.RootState&gt; = {</span>
+export const actions: ActionTree&lt;GA.IconsState, GA.RootState&gt; = {
   fetchIconsCategories,
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -127,7 +127,7 @@ export const <span class="cstat-no" title="statement not covered" >actions: Acti
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Apr 03 2022 00:04:35 GMT+0300 (Eastern European Summer Time)
+                at Sat Jul 02 2022 16:03:30 GMT+0300 (Eastern European Summer Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -2,10 +2,10 @@
 
 exports[`Login Icon View snapshot should match snapshot 1`] = `
 <div
-  class="ga__login_icon_view"
+  class="ga__signup_icon_view"
 >
   <v-row
-    class="ga__login_icon_view__title_row"
+    class="ga__signup_icon_view__title_row"
   >
     <v-btn
       color="teal darken-2"
@@ -25,24 +25,24 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
    
   <v-row
     align-content="center"
-    class="ga__login_icon_view__title"
+    class="ga__signup_icon_view__title"
     justify="center"
   >
     <v-col
       cols="12"
     >
       <div
-        class="text-overline white--text text--darken-1 ga__login_icon_view__title__text"
+        class="text-overline white--text text--darken-1 ga__signup_icon_view__title__text"
       >
         
-          Login
+          Signup
         
       </div>
     </v-col>
   </v-row>
    
   <v-row
-    class="ga__login_icon_view__content"
+    class="ga__signup_icon_view__content"
   >
     <v-col
       cols="12"
@@ -50,15 +50,56 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
     >
       <v-form>
         <v-row
-          class="ga__login_icon_view__form_row"
+          class="ga__signup_icon_view__form_row"
           justify="center"
         >
           <v-col
-            class="ga__login_icon_view__form_col"
+            class="ga__signup_icon_view__form_col"
             cols="8"
           >
             <v-text-field
-              class="ga__login_icon_view__form_field"
+              class="ga__signup_icon_view__form_field"
+              color="teal"
+              counter="20"
+              dark=""
+              filled=""
+              label="first and last name"
+              required=""
+              rules="(v) => {
+          /* istanbul ignore next */
+          cov_203uahwopn().f[2]++;
+          cov_203uahwopn().s[12]++;
+          return (
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[0][0]++, !!v) ||
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[0][1]++, \\"name is required\\")
+          );
+        },(v) => {
+          /* istanbul ignore next */
+          cov_203uahwopn().f[3]++;
+          cov_203uahwopn().s[13]++;
+          return (
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[1][0]++, v.length <= 20) ||
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[1][1]++, \\"the name must be less than 20 characters\\")
+          );
+        }"
+            />
+          </v-col>
+        </v-row>
+         
+        <v-row
+          class="ga__signup_icon_view__form_row"
+          justify="center"
+        >
+          <v-col
+            class="ga__signup_icon_view__form_col"
+            cols="8"
+          >
+            <v-text-field
+              class="ga__signup_icon_view__form_field"
               color="teal"
               counter="10"
               dark=""
@@ -67,23 +108,23 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
               required=""
               rules="(v) => {
           /* istanbul ignore next */
-          cov_1x0aq6mdyg().f[2]++;
-          cov_1x0aq6mdyg().s[12]++;
+          cov_203uahwopn().f[4]++;
+          cov_203uahwopn().s[14]++;
           return (
             /* istanbul ignore next */
-            (cov_1x0aq6mdyg().b[0][0]++, !!v) ||
+            (cov_203uahwopn().b[2][0]++, !!v) ||
             /* istanbul ignore next */
-            (cov_1x0aq6mdyg().b[0][1]++, \\"username is required\\")
+            (cov_203uahwopn().b[2][1]++, \\"username is required\\")
           );
         },(v) => {
           /* istanbul ignore next */
-          cov_1x0aq6mdyg().f[3]++;
-          cov_1x0aq6mdyg().s[13]++;
+          cov_203uahwopn().f[5]++;
+          cov_203uahwopn().s[15]++;
           return (
             /* istanbul ignore next */
-            (cov_1x0aq6mdyg().b[1][0]++, v.length <= 10) ||
+            (cov_203uahwopn().b[3][0]++, v.length <= 10) ||
             /* istanbul ignore next */
-            (cov_1x0aq6mdyg().b[1][1]++, \\"username must be less than 10 characters\\")
+            (cov_203uahwopn().b[3][1]++, \\"username must be less than 10 characters\\")
           );
         }"
             />
@@ -91,11 +132,51 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
         </v-row>
          
         <v-row
-          class="ga__login_icon_view__form_row"
+          class="ga__signup_icon_view__form_row"
           justify="center"
         >
           <v-col
-            class="ga__login_icon_view__form_col"
+            class="ga__signup_icon_view__form_col"
+            cols="8"
+          >
+            <v-text-field
+              class="ga__signup_icon_view__form_field"
+              color="teal"
+              dark=""
+              filled=""
+              label="email"
+              required=""
+              rules="(v) => {
+          /* istanbul ignore next */
+          cov_203uahwopn().f[6]++;
+          cov_203uahwopn().s[16]++;
+          return (
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[4][0]++, !!v) ||
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[4][1]++, \\"e-mail is required\\")
+          );
+        },(v) => {
+          /* istanbul ignore next */
+          cov_203uahwopn().f[7]++;
+          cov_203uahwopn().s[17]++;
+          return (
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[5][0]++, /.+@.+/.test(v)) ||
+            /* istanbul ignore next */
+            (cov_203uahwopn().b[5][1]++, \\"e-mail must be valid\\")
+          );
+        }"
+            />
+          </v-col>
+        </v-row>
+         
+        <v-row
+          class="ga__signup_icon_view__form_row"
+          justify="center"
+        >
+          <v-col
+            class="ga__signup_icon_view__form_col"
             cols="8"
           >
             <v-select
@@ -117,7 +198,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           class="hidden"
         >
           <v-col
-            class="ga__login_icon_view__icons_title"
+            class="ga__signup_icon_view__icons_title"
             cols="12"
           >
             <div
@@ -127,7 +208,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
                 Choose icons for your
                 
               <span
-                class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass"
+                class="text-overline font-weight-light white--text ga__signup_icon_view__icons_title__pass"
               >
                 IPASS
               </span>
@@ -140,64 +221,64 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
         </v-row>
          
         <v-row
-          class="ga__login_icon_view__icons_row hidden"
+          class="ga__signup_icon_view__icons_row hidden"
         >
           <v-col
-            class="ga__login_icon_view__icon"
+            class="ga__signup_icon_view__icon"
             cols="2"
           >
             <div
-              class="ga__login_icon_view__icon__content"
+              class="ga__signup_icon_view__icon__content"
             >
               <!---->
             </div>
           </v-col>
           <v-col
-            class="ga__login_icon_view__icon"
+            class="ga__signup_icon_view__icon"
             cols="2"
           >
             <div
-              class="ga__login_icon_view__icon__content"
+              class="ga__signup_icon_view__icon__content"
             >
               <!---->
             </div>
           </v-col>
           <v-col
-            class="ga__login_icon_view__icon"
+            class="ga__signup_icon_view__icon"
             cols="2"
           >
             <div
-              class="ga__login_icon_view__icon__content"
+              class="ga__signup_icon_view__icon__content"
             >
               <!---->
             </div>
           </v-col>
           <v-col
-            class="ga__login_icon_view__icon"
+            class="ga__signup_icon_view__icon"
             cols="2"
           >
             <div
-              class="ga__login_icon_view__icon__content"
+              class="ga__signup_icon_view__icon__content"
             >
               <!---->
             </div>
           </v-col>
           <v-col
-            class="ga__login_icon_view__icon"
+            class="ga__signup_icon_view__icon"
             cols="2"
           >
             <div
-              class="ga__login_icon_view__icon__content"
+              class="ga__signup_icon_view__icon__content"
             >
               <!---->
             </div>
           </v-col>
           <v-col
-            class="ga__login_icon_view__icon"
+            class="ga__signup_icon_view__icon"
             cols="2"
           >
             <div
-              class="ga__login_icon_view__icon__content"
+              class="ga__signup_icon_view__icon__content"
             >
               <!---->
             </div>
@@ -207,19 +288,19 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
     </v-col>
      
     <v-col
-      class="ga__login_icon_view__icons"
+      class="ga__signup_icon_view__icons"
       cols="12"
       lg="6"
     >
       <v-row
-        class="ga__login_icon_view__icons__row"
+        class="ga__signup_icon_view__icons__row"
       >
         <v-col
           align-self="center"
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -233,7 +314,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -247,7 +328,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -261,7 +342,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -275,7 +356,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -289,7 +370,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -303,7 +384,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -317,7 +398,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -331,7 +412,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -345,7 +426,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -359,7 +440,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -373,7 +454,7 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
           cols="3"
         >
           <div
-            class="ga__login_icon_view__icon_wrapper"
+            class="ga__signup_icon_view__icon_wrapper"
           >
             <fa-icon
               color="white"
@@ -387,10 +468,10 @@ exports[`Login Icon View snapshot should match snapshot 1`] = `
   </v-row>
    
   <div
-    class="ga__login_icon_view__logo_container"
+    class="ga__signup_icon_view__logo_container"
   >
     <div
-      class="ga__login_icon_view__logo"
+      class="ga__signup_icon_view__logo"
     />
   </div>
    

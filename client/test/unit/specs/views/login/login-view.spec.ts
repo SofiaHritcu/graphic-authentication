@@ -2,12 +2,10 @@ import { createLocalVue, shallowMount } from "@vue/test-utils";
 import LoginView from "@/views/login/login-view.vue";
 import "regenerator-runtime/runtime";
 
-describe("Landing View", () => {
+describe("Login View", () => {
   let wrapper: any;
 
   beforeEach(() => {
-    const localVue = createLocalVue();
-    
     wrapper = shallowMount(LoginView, {
       mocks: {
         $router: {

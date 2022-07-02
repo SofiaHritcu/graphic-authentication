@@ -1,43 +1,25 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="229" lines-covered="5" line-rate="0.0218" branches-valid="117" branches-covered="3" branch-rate="0.0256" timestamp="1648933475528" complexity="0" version="0.1">
+<coverage lines-valid="103" lines-covered="43" line-rate="0.4174" branches-valid="5" branches-covered="1" branch-rate="0.2" timestamp="1656767010431" complexity="0" version="0.1">
   <sources>
-    <source>C:\Users\SofiaHritcu\graphic-authentication\graphic-authentication\client</source>
+    <source>/Users/sofia/GraphicAuthentication/graphic-authentication/client</source>
   </sources>
   <packages>
-    <package name="components.ui" line-rate="0" branch-rate="0">
+    <package name="components.ui" line-rate="1" branch-rate="1">
       <classes>
-        <class name="app-menu.vue" filename="src\components\ui\app-menu.vue" line-rate="0" branch-rate="0">
+        <class name="app-menu.vue" filename="src/components/ui/app-menu.vue" line-rate="1" branch-rate="1">
           <methods>
-            <method name="data" hits="0" signature="()V">
-              <lines>
-                <line number="32" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleAppMenuItemClick" hits="0" signature="()V">
-              <lines>
-                <line number="55" hits="0"/>
-              </lines>
-            </method>
-            <method name="isLinkSelected" hits="0" signature="()V">
-              <lines>
-                <line number="60" hits="0"/>
-              </lines>
-            </method>
           </methods>
           <lines>
-            <line number="21" hits="0" branch="false"/>
-            <line number="27" hits="0" branch="false"/>
-            <line number="33" hits="0" branch="false"/>
-            <line number="55" hits="0" branch="true" condition-coverage="0% (0/4)"/>
-            <line number="61" hits="0" branch="false"/>
+            <line number="21" hits="3" branch="false"/>
+            <line number="27" hits="3" branch="false"/>
           </lines>
         </class>
       </classes>
     </package>
     <package name="store" line-rate="0" branch-rate="1">
       <classes>
-        <class name="index.ts" filename="src\store\index.ts" line-rate="0" branch-rate="1">
+        <class name="index.ts" filename="src/store/index.ts" line-rate="0" branch-rate="1">
           <methods>
           </methods>
           <lines>
@@ -54,7 +36,7 @@
     </package>
     <package name="store.modules.authentication" line-rate="0" branch-rate="0">
       <classes>
-        <class name="actions.ts" filename="src\store\modules\authentication\actions.ts" line-rate="0" branch-rate="0">
+        <class name="actions.ts" filename="src/store/modules/authentication/actions.ts" line-rate="0" branch-rate="0">
           <methods>
             <method name="(anonymous_1)" hits="0" signature="()V">
               <lines>
@@ -91,7 +73,7 @@
             <line number="37" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="getters.ts" filename="src\store\modules\authentication\getters.ts" line-rate="0" branch-rate="1">
+        <class name="getters.ts" filename="src/store/modules/authentication/getters.ts" line-rate="0" branch-rate="1">
           <methods>
             <method name="(anonymous_0)" hits="0" signature="()V">
               <lines>
@@ -119,7 +101,7 @@
             <line number="15" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="index.ts" filename="src\store\modules\authentication\index.ts" line-rate="0" branch-rate="1">
+        <class name="index.ts" filename="src/store/modules/authentication/index.ts" line-rate="0" branch-rate="1">
           <methods>
           </methods>
           <lines>
@@ -130,14 +112,14 @@
             <line number="7" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="initial-state.ts" filename="src\store\modules\authentication\initial-state.ts" line-rate="0" branch-rate="0">
+        <class name="initial-state.ts" filename="src/store/modules/authentication/initial-state.ts" line-rate="0" branch-rate="0">
           <methods>
           </methods>
           <lines>
             <line number="1" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="mutations.ts" filename="src\store\modules\authentication\mutations.ts" line-rate="0" branch-rate="1">
+        <class name="mutations.ts" filename="src/store/modules/authentication/mutations.ts" line-rate="0" branch-rate="1">
           <methods>
             <method name="(anonymous_0)" hits="0" signature="()V">
               <lines>
@@ -188,52 +170,52 @@
         </class>
       </classes>
     </package>
-    <package name="store.modules.icons" line-rate="0" branch-rate="0">
+    <package name="store.modules.icons" line-rate="0.76" branch-rate="1">
       <classes>
-        <class name="actions.ts" filename="src\store\modules\icons\actions.ts" line-rate="0" branch-rate="0">
+        <class name="actions.ts" filename="src/store/modules/icons/actions.ts" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_1)" hits="0" signature="()V">
+            <method name="(anonymous_1)" hits="1" signature="()V">
               <lines>
-                <line number="7" hits="0"/>
+                <line number="7" hits="1"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="2" hits="0" branch="false"/>
-            <line number="4" hits="0" branch="false"/>
-            <line number="7" hits="0" branch="false"/>
-            <line number="8" hits="0" branch="false"/>
-            <line number="9" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="10" hits="0" branch="false"/>
-            <line number="12" hits="0" branch="false"/>
-            <line number="14" hits="0" branch="false"/>
-            <line number="17" hits="0" branch="false"/>
+            <line number="2" hits="1" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="7" hits="1" branch="false"/>
+            <line number="8" hits="1" branch="false"/>
+            <line number="9" hits="1" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="10" hits="1" branch="false"/>
+            <line number="12" hits="1" branch="false"/>
+            <line number="14" hits="1" branch="false"/>
+            <line number="17" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="getters.ts" filename="src\store\modules\icons\getters.ts" line-rate="0" branch-rate="1">
+        <class name="getters.ts" filename="src/store/modules/icons/getters.ts" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_0)" hits="0" signature="()V">
+            <method name="(anonymous_0)" hits="1" signature="()V">
               <lines>
-                <line number="5" hits="0"/>
+                <line number="5" hits="1"/>
               </lines>
             </method>
-            <method name="(anonymous_1)" hits="0" signature="()V">
+            <method name="(anonymous_1)" hits="1" signature="()V">
               <lines>
-                <line number="9" hits="0"/>
+                <line number="9" hits="1"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="0" branch="false"/>
-            <line number="2" hits="0" branch="false"/>
-            <line number="5" hits="0" branch="false"/>
-            <line number="7" hits="0" branch="false"/>
-            <line number="9" hits="0" branch="false"/>
-            <line number="12" hits="0" branch="false"/>
-            <line number="14" hits="0" branch="false"/>
+            <line number="1" hits="1" branch="false"/>
+            <line number="2" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="7" hits="1" branch="false"/>
+            <line number="9" hits="1" branch="false"/>
+            <line number="12" hits="1" branch="false"/>
+            <line number="14" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="index.ts" filename="src\store\modules\icons\index.ts" line-rate="0" branch-rate="1">
+        <class name="index.ts" filename="src/store/modules/icons/index.ts" line-rate="0" branch-rate="1">
           <methods>
           </methods>
           <lines>
@@ -244,107 +226,47 @@
             <line number="7" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="initial-state.ts" filename="src\store\modules\icons\initial-state.ts" line-rate="0" branch-rate="1">
+        <class name="initial-state.ts" filename="src/store/modules/icons/initial-state.ts" line-rate="0" branch-rate="1">
           <methods>
           </methods>
           <lines>
             <line number="1" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="mutations.ts" filename="src\store\modules\icons\mutations.ts" line-rate="0" branch-rate="1">
+        <class name="mutations.ts" filename="src/store/modules/icons/mutations.ts" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_0)" hits="0" signature="()V">
+            <method name="(anonymous_0)" hits="1" signature="()V">
               <lines>
-                <line number="3" hits="0"/>
+                <line number="3" hits="1"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="3" hits="0" branch="false"/>
-            <line number="7" hits="0" branch="false"/>
-            <line number="10" hits="0" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
+            <line number="7" hits="1" branch="false"/>
+            <line number="10" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
     </package>
-    <package name="views" line-rate="0.3846" branch-rate="0.23070000000000002">
+    <package name="views" line-rate="1" branch-rate="1">
       <classes>
-        <class name="landing-view.vue" filename="src\views\landing-view.vue" line-rate="1" branch-rate="1">
+        <class name="landing-view.vue" filename="src/views/landing-view.vue" line-rate="1" branch-rate="1">
           <methods>
-            <method name="data" hits="2" signature="()V">
-              <lines>
-                <line number="54" hits="2"/>
-              </lines>
-            </method>
-            <method name="handleButtonClick" hits="4" signature="()V">
-              <lines>
-                <line number="63" hits="4"/>
-              </lines>
-            </method>
           </methods>
           <lines>
             <line number="45" hits="1" branch="false"/>
             <line number="46" hits="1" branch="false"/>
-            <line number="55" hits="2" branch="false"/>
-            <line number="63" hits="9" branch="true" condition-coverage="100% (3/3)"/>
           </lines>
         </class>
-        <class name="learn-more-view.vue" filename="src\views\learn-more-view.vue" line-rate="0" branch-rate="1">
+        <class name="learn-more-view.vue" filename="src/views/learn-more-view.vue" line-rate="1" branch-rate="1">
           <methods>
-            <method name="data" hits="0" signature="()V">
-              <lines>
-                <line number="13" hits="0"/>
-              </lines>
-            </method>
           </methods>
           <lines>
-            <line number="8" hits="0" branch="false"/>
-            <line number="14" hits="0" branch="false"/>
+            <line number="8" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="signup-view.vue" filename="src\views\signup-view.vue" line-rate="0" branch-rate="0">
-          <methods>
-            <method name="data" hits="0" signature="()V">
-              <lines>
-                <line number="73" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_2)" hits="0" signature="()V">
-              <lines>
-                <line number="78" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_3)" hits="0" signature="()V">
-              <lines>
-                <line number="79" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_4)" hits="0" signature="()V">
-              <lines>
-                <line number="84" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_5)" hits="0" signature="()V">
-              <lines>
-                <line number="86" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_6)" hits="0" signature="()V">
-              <lines>
-                <line number="87" hits="0"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="74" hits="0" branch="false"/>
-            <line number="79" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="80" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="84" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="87" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="88" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-          </lines>
-        </class>
-        <class name="wrapper-view.vue" filename="src\views\wrapper-view.vue" line-rate="1" branch-rate="1">
+        <class name="wrapper-view.vue" filename="src/views/wrapper-view.vue" line-rate="1" branch-rate="1">
           <methods>
           </methods>
           <lines>
@@ -353,431 +275,52 @@
         </class>
       </classes>
     </package>
-    <package name="views.login" line-rate="0" branch-rate="0">
+    <package name="views.login" line-rate="1" branch-rate="1">
       <classes>
-        <class name="login-icon-view.vue" filename="src\views\login\login-icon-view.vue" line-rate="0" branch-rate="0">
+        <class name="login-icon-view.vue" filename="src/views/login/login-icon-view.vue" line-rate="1" branch-rate="1">
           <methods>
-            <method name="data" hits="0" signature="()V">
-              <lines>
-                <line number="210" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_2)" hits="0" signature="()V">
-              <lines>
-                <line number="215" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_3)" hits="0" signature="()V">
-              <lines>
-                <line number="216" hits="0"/>
-              </lines>
-            </method>
-            <method name="created" hits="0" signature="()V">
-              <lines>
-                <line number="232" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleBackBtnClick" hits="0" signature="()V">
-              <lines>
-                <line number="240" hits="0"/>
-              </lines>
-            </method>
-            <method name="setUpIconsCategories" hits="0" signature="()V">
-              <lines>
-                <line number="243" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_13)" hits="0" signature="()V">
-              <lines>
-                <line number="244" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_14)" hits="0" signature="()V">
-              <lines>
-                <line number="246" hits="0"/>
-              </lines>
-            </method>
-            <method name="setUpDefaultIconsPass" hits="0" signature="()V">
-              <lines>
-                <line number="253" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleIconCategoryChange" hits="0" signature="()V">
-              <lines>
-                <line number="258" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_17)" hits="0" signature="()V">
-              <lines>
-                <line number="263" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleIconClick" hits="0" signature="()V">
-              <lines>
-                <line number="268" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleClearBtnClick" hits="0" signature="()V">
-              <lines>
-                <line number="292" hits="0"/>
-              </lines>
-            </method>
-            <method name="submitLogin" hits="0" signature="()V">
-              <lines>
-                <line number="297" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleLoginBtnClick" hits="0" signature="()V">
-              <lines>
-                <line number="312" hits="0"/>
-              </lines>
-            </method>
-            <method name="onLargerViewPort" hits="0" signature="()V">
-              <lines>
-                <line number="327" hits="0"/>
-              </lines>
-            </method>
-            <method name="iconsScrollSize" hits="0" signature="()V">
-              <lines>
-                <line number="333" hits="0"/>
-              </lines>
-            </method>
-            <method name="logoIsVisible" hits="0" signature="()V">
-              <lines>
-                <line number="336" hits="0"/>
-              </lines>
-            </method>
-            <method name="passIsComplete" hits="0" signature="()V">
-              <lines>
-                <line number="339" hits="0"/>
-              </lines>
-            </method>
-            <method name="getSelectableIconsSize" hits="0" signature="()V">
-              <lines>
-                <line number="342" hits="0"/>
-              </lines>
-            </method>
           </methods>
           <lines>
-            <line number="194" hits="0" branch="false"/>
-            <line number="195" hits="0" branch="false"/>
-            <line number="196" hits="0" branch="false"/>
-            <line number="201" hits="0" branch="false"/>
-            <line number="205" hits="0" branch="false"/>
-            <line number="206" hits="0" branch="false"/>
-            <line number="211" hits="0" branch="false"/>
-            <line number="216" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="217" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="232" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="233" hits="0" branch="false"/>
-            <line number="240" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="243" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="244" hits="0" branch="false"/>
-            <line number="245" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="246" hits="0" branch="false"/>
-            <line number="247" hits="0" branch="false"/>
-            <line number="249" hits="0" branch="false"/>
-            <line number="254" hits="0" branch="false"/>
-            <line number="255" hits="0" branch="false"/>
-            <line number="259" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="260" hits="0" branch="false"/>
-            <line number="263" hits="0" branch="false"/>
-            <line number="264" hits="0" branch="false"/>
-            <line number="266" hits="0" branch="false"/>
-            <line number="269" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="270" hits="0" branch="false"/>
-            <line number="272" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="273" hits="0" branch="false"/>
-            <line number="277" hits="0" branch="false"/>
-            <line number="279" hits="0" branch="false"/>
-            <line number="283" hits="0" branch="false"/>
-            <line number="284" hits="0" branch="false"/>
-            <line number="287" hits="0" branch="false"/>
-            <line number="293" hits="0" branch="false"/>
-            <line number="294" hits="0" branch="false"/>
-            <line number="295" hits="0" branch="false"/>
-            <line number="297" hits="0" branch="true" condition-coverage="0% (0/5)"/>
-            <line number="298" hits="0" branch="false"/>
-            <line number="303" hits="0" branch="false"/>
-            <line number="304" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="305" hits="0" branch="false"/>
-            <line number="308" hits="0" branch="false"/>
-            <line number="309" hits="0" branch="false"/>
-            <line number="314" hits="0" branch="false"/>
-            <line number="315" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="316" hits="0" branch="false"/>
-            <line number="317" hits="0" branch="false"/>
-            <line number="319" hits="0" branch="false"/>
-            <line number="321" hits="0" branch="false"/>
-            <line number="328" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="334" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="337" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="340" hits="0" branch="false"/>
-            <line number="343" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="194" hits="1" branch="false"/>
+            <line number="195" hits="1" branch="false"/>
+            <line number="196" hits="1" branch="false"/>
+            <line number="201" hits="1" branch="false"/>
+            <line number="205" hits="1" branch="false"/>
+            <line number="206" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="login-view.vue" filename="src\views\login\login-view.vue" line-rate="0" branch-rate="0">
+        <class name="login-view.vue" filename="src/views/login/login-view.vue" line-rate="1" branch-rate="1">
           <methods>
-            <method name="data" hits="0" signature="()V">
-              <lines>
-                <line number="73" hits="0"/>
-              </lines>
-            </method>
-            <method name="avatarSize" hits="0" signature="()V">
-              <lines>
-                <line number="109" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleAuthCardClick" hits="0" signature="()V">
-              <lines>
-                <line number="118" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleIPassClick" hits="0" signature="()V">
-              <lines>
-                <line number="121" hits="0"/>
-              </lines>
-            </method>
           </methods>
           <lines>
-            <line number="62" hits="0" branch="false"/>
-            <line number="63" hits="0" branch="false"/>
-            <line number="67" hits="0" branch="false"/>
-            <line number="74" hits="0" branch="false"/>
-            <line number="110" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="118" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="121" hits="0" branch="true" condition-coverage="0% (0/3)"/>
+            <line number="62" hits="1" branch="false"/>
+            <line number="63" hits="1" branch="false"/>
+            <line number="67" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
     </package>
-    <package name="views.signup" line-rate="0" branch-rate="0">
+    <package name="views.signup" line-rate="1" branch-rate="1">
       <classes>
-        <class name="signup-icon-view.vue" filename="src\views\signup\signup-icon-view.vue" line-rate="0" branch-rate="0">
+        <class name="signup-icon-view.vue" filename="src/views/signup/signup-icon-view.vue" line-rate="1" branch-rate="1">
           <methods>
-            <method name="data" hits="0" signature="()V">
-              <lines>
-                <line number="242" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_2)" hits="0" signature="()V">
-              <lines>
-                <line number="249" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_3)" hits="0" signature="()V">
-              <lines>
-                <line number="250" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_4)" hits="0" signature="()V">
-              <lines>
-                <line number="254" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_5)" hits="0" signature="()V">
-              <lines>
-                <line number="255" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_6)" hits="0" signature="()V">
-              <lines>
-                <line number="259" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_7)" hits="0" signature="()V">
-              <lines>
-                <line number="260" hits="0"/>
-              </lines>
-            </method>
-            <method name="created" hits="0" signature="()V">
-              <lines>
-                <line number="275" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleBackBtnClick" hits="0" signature="()V">
-              <lines>
-                <line number="283" hits="0"/>
-              </lines>
-            </method>
-            <method name="setUpIconsCategories" hits="0" signature="()V">
-              <lines>
-                <line number="286" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_17)" hits="0" signature="()V">
-              <lines>
-                <line number="287" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_18)" hits="0" signature="()V">
-              <lines>
-                <line number="289" hits="0"/>
-              </lines>
-            </method>
-            <method name="setUpDefaultIconsPass" hits="0" signature="()V">
-              <lines>
-                <line number="296" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleIconCategoryChange" hits="0" signature="()V">
-              <lines>
-                <line number="301" hits="0"/>
-              </lines>
-            </method>
-            <method name="(anonymous_21)" hits="0" signature="()V">
-              <lines>
-                <line number="306" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleIconClick" hits="0" signature="()V">
-              <lines>
-                <line number="311" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleClearBtnClick" hits="0" signature="()V">
-              <lines>
-                <line number="335" hits="0"/>
-              </lines>
-            </method>
-            <method name="submitSignup" hits="0" signature="()V">
-              <lines>
-                <line number="343" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleSignupBtnClick" hits="0" signature="()V">
-              <lines>
-                <line number="361" hits="0"/>
-              </lines>
-            </method>
-            <method name="onLargerViewPort" hits="0" signature="()V">
-              <lines>
-                <line number="376" hits="0"/>
-              </lines>
-            </method>
-            <method name="iconsScrollSize" hits="0" signature="()V">
-              <lines>
-                <line number="382" hits="0"/>
-              </lines>
-            </method>
-            <method name="logoIsVisible" hits="0" signature="()V">
-              <lines>
-                <line number="385" hits="0"/>
-              </lines>
-            </method>
-            <method name="passIsComplete" hits="0" signature="()V">
-              <lines>
-                <line number="388" hits="0"/>
-              </lines>
-            </method>
-            <method name="getSelectableIconsSize" hits="0" signature="()V">
-              <lines>
-                <line number="391" hits="0"/>
-              </lines>
-            </method>
           </methods>
           <lines>
-            <line number="226" hits="0" branch="false"/>
-            <line number="227" hits="0" branch="false"/>
-            <line number="228" hits="0" branch="false"/>
-            <line number="233" hits="0" branch="false"/>
-            <line number="237" hits="0" branch="false"/>
-            <line number="238" hits="0" branch="false"/>
-            <line number="243" hits="0" branch="false"/>
-            <line number="250" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="251" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="255" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="256" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="260" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="261" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="275" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="276" hits="0" branch="false"/>
-            <line number="283" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="286" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="287" hits="0" branch="false"/>
-            <line number="288" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="289" hits="0" branch="false"/>
-            <line number="290" hits="0" branch="false"/>
-            <line number="292" hits="0" branch="false"/>
-            <line number="297" hits="0" branch="false"/>
-            <line number="298" hits="0" branch="false"/>
-            <line number="302" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="303" hits="0" branch="false"/>
-            <line number="306" hits="0" branch="false"/>
-            <line number="307" hits="0" branch="false"/>
-            <line number="309" hits="0" branch="false"/>
-            <line number="312" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="313" hits="0" branch="false"/>
-            <line number="315" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="316" hits="0" branch="false"/>
-            <line number="320" hits="0" branch="false"/>
-            <line number="322" hits="0" branch="false"/>
-            <line number="326" hits="0" branch="false"/>
-            <line number="327" hits="0" branch="false"/>
-            <line number="330" hits="0" branch="false"/>
-            <line number="336" hits="0" branch="false"/>
-            <line number="337" hits="0" branch="false"/>
-            <line number="338" hits="0" branch="false"/>
-            <line number="339" hits="0" branch="false"/>
-            <line number="340" hits="0" branch="false"/>
-            <line number="341" hits="0" branch="false"/>
-            <line number="343" hits="0" branch="true" condition-coverage="0% (0/5)"/>
-            <line number="344" hits="0" branch="false"/>
-            <line number="352" hits="0" branch="false"/>
-            <line number="353" hits="0" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="354" hits="0" branch="false"/>
-            <line number="357" hits="0" branch="false"/>
-            <line number="358" hits="0" branch="false"/>
-            <line number="363" hits="0" branch="false"/>
-            <line number="364" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="365" hits="0" branch="false"/>
-            <line number="366" hits="0" branch="false"/>
-            <line number="368" hits="0" branch="false"/>
-            <line number="370" hits="0" branch="false"/>
-            <line number="377" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="383" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="386" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="389" hits="0" branch="false"/>
-            <line number="392" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="226" hits="1" branch="false"/>
+            <line number="227" hits="1" branch="false"/>
+            <line number="228" hits="1" branch="false"/>
+            <line number="233" hits="1" branch="false"/>
+            <line number="237" hits="1" branch="false"/>
+            <line number="238" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="signup-view.vue" filename="src\views\signup\signup-view.vue" line-rate="0" branch-rate="0">
+        <class name="signup-view.vue" filename="src/views/signup/signup-view.vue" line-rate="1" branch-rate="1">
           <methods>
-            <method name="data" hits="0" signature="()V">
-              <lines>
-                <line number="84" hits="0"/>
-              </lines>
-            </method>
-            <method name="avatarSize" hits="0" signature="()V">
-              <lines>
-                <line number="124" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleSignupCardClick" hits="0" signature="()V">
-              <lines>
-                <line number="133" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleAuthCardClick" hits="0" signature="()V">
-              <lines>
-                <line number="136" hits="0"/>
-              </lines>
-            </method>
-            <method name="handleIPassClick" hits="0" signature="()V">
-              <lines>
-                <line number="139" hits="0"/>
-              </lines>
-            </method>
           </methods>
           <lines>
-            <line number="72" hits="0" branch="false"/>
-            <line number="73" hits="0" branch="false"/>
-            <line number="78" hits="0" branch="false"/>
-            <line number="85" hits="0" branch="false"/>
-            <line number="125" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="133" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="136" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="139" hits="0" branch="true" condition-coverage="0% (0/3)"/>
+            <line number="72" hits="1" branch="false"/>
+            <line number="73" hits="1" branch="false"/>
+            <line number="78" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

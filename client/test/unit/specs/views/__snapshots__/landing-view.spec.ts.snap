@@ -28,8 +28,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
       class="text-overline font-weight-light white--text ga__home_view__right__title"
     >
       
-      IPass
-    
+        IPass
+      
     </div>
      
     <div>

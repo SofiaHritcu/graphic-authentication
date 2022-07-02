@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Landing View snapshot should match snapshot 1`] = `
+exports[`Login View snapshot should match snapshot 1`] = `
 <div
   class="ga__login_view"
 >
@@ -26,8 +26,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
         class="text-overline font-weight-light white--text ga__login_view__title__text"
       >
         
-        IPass
-      
+          IPass
+        
       </div>
     </v-col>
   </v-row>
@@ -60,8 +60,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           class="text-overline ga__login_view__auth_cards__card__title"
         >
           
-          Icon Pass
-        
+            Icon Pass
+          
         </v-card-text>
          
         <v-btn
@@ -70,8 +70,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           outlined=""
         >
           
-          Login
-        
+            Login
+          
         </v-btn>
       </v-card>
     </v-col>
@@ -99,8 +99,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           class="text-overline ga__login_view__auth_cards__card__title"
         >
           
-          Other Pass
-        
+            Other Pass
+          
         </v-card-text>
          
         <v-btn
@@ -109,8 +109,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           outlined=""
         >
           
-          Login
-        
+            Login
+          
         </v-btn>
       </v-card>
     </v-col>
@@ -138,8 +138,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           class="text-overline ga__login_view__auth_cards__card__title"
         >
           
-          Other Pass
-        
+            Other Pass
+          
         </v-card-text>
          
         <v-btn
@@ -148,8 +148,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           outlined=""
         >
           
-          Login
-        
+            Login
+          
         </v-btn>
       </v-card>
     </v-col>
@@ -177,8 +177,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           class="text-overline ga__login_view__auth_cards__card__title"
         >
           
-          Other Pass
-        
+            Other Pass
+          
         </v-card-text>
          
         <v-btn
@@ -187,8 +187,8 @@ exports[`Landing View snapshot should match snapshot 1`] = `
           outlined=""
         >
           
-          Login
-        
+            Login
+          
         </v-btn>
       </v-card>
     </v-col>

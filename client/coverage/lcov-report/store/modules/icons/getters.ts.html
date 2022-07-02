@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -80,37 +80,37 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { SORT_ORDER } from "@/config/sort-config";</span>
-<span class="cstat-no" title="statement not covered" >import { sortByFieldName } from "@/utils/sort-helper";</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { SORT_ORDER } from "@/config/sort-config";
+import { sortByFieldName } from "@/utils/sort-helper";
 import { Getter, GetterTree } from "vuex";
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >iconsCategories: Getter&lt;GA.IconsState, GA.RootState&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const iconsCategories: Getter&lt;GA.IconsState, GA.RootState&gt; = (
   state
-): GA.IconCategoryBase[] =&gt; <span class="cstat-no" title="statement not covered" >state.iconsCategories;</span>
+): GA.IconCategoryBase[] =&gt; state.iconsCategories;
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >iconCategoriesSorted: Getter&lt;GA.IconsState, GA.RootState&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const iconCategoriesSorted: Getter&lt;GA.IconsState, GA.RootState&gt; = (
   state
 ): GA.IconCategoryBase[] =&gt;
-<span class="cstat-no" title="statement not covered" >  sortByFieldName([...state.iconsCategories], "category", SORT_ORDER.ASCENDING);</span>
+  sortByFieldName([...state.iconsCategories], "category", SORT_ORDER.ASCENDING);
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >getters: GetterTree&lt;GA.IconsState, GA.RootState&gt; = {</span>
+export const getters: GetterTree&lt;GA.IconsState, GA.RootState&gt; = {
   iconsCategories,
   iconCategoriesSorted,
 };
@@ -121,7 +121,7 @@ export const <span class="cstat-no" title="statement not covered" >getters: Gett
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Apr 03 2022 00:04:35 GMT+0300 (Eastern European Summer Time)
+                at Sat Jul 02 2022 16:03:30 GMT+0300 (Eastern European Summer Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

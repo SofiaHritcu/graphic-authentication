@@ -257,8 +257,8 @@ export default Vue.extend({
           v.length <= 10 || "username must be less than 10 characters",
       ],
       emailRules: [
-        (v: string) => !!v || "E-mail is required",
-        (v: string) => /.+@.+/.test(v) || "E-mail must be valid",
+        (v: string) => !!v || "e-mail is required",
+        (v: string) => /.+@.+/.test(v) || "e-mail must be valid",
       ],
       iconCategoriesItems: [],
       logoVisible: true,
