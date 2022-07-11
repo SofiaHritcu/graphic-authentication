@@ -20,7 +20,7 @@
         <div
           class="text-overline white--text text--darken-1 ga__signup_icon_view__title__text"
         >
-          Signup
+          Sign up
         </div>
       </v-col>
     </v-row>
@@ -164,7 +164,7 @@
             @click="handleSignupBtnClick"
             class="mr-sm-4 mb-xs-4"
           >
-            signup
+            Sign Up
           </v-btn>
           <div class="ga__signup_icon_view__controls__separator">/</div>
           <v-btn
@@ -283,6 +283,7 @@ export default Vue.extend({
     async handleBackBtnClick() {
       await this.$router.push({ name: GA_SIGNUP_ROUTE_NAME });
     },
+
     async setUpIconsCategories() {
       this.fetchIconsCategories().then((res) => {
         if (res) {
@@ -293,11 +294,13 @@ export default Vue.extend({
         }
       });
     },
+
     setUpDefaultIconsPass() {
       for (let index = 0; index < this.iconPassCount; index++) {
         this.iconPasses.push("");
       }
     },
+
     handleIconCategoryChange(iconCategorySelected: string) {
       if (this.logoVisible) {
         this.logoVisible = false;
@@ -308,6 +311,7 @@ export default Vue.extend({
       ).icons;
       this.iconItems = iconsSelectedCategory;
     },
+
     handleIconClick(iconItem: string) {
       if (this.logoVisible) {
         this.logoVisible = false;
@@ -332,6 +336,7 @@ export default Vue.extend({
         );
       }
     },
+
     handleClearBtnClick() {
       this.name = "";
       this.userName = "";
@@ -340,6 +345,7 @@ export default Vue.extend({
       this.iconPassLastCompletedIndex = 0;
       this.setUpDefaultIconsPass();
     },
+
     async submitSignup() {
       const userToBeLoggedIn = {
         name: this.name,
@@ -358,6 +364,7 @@ export default Vue.extend({
         this.signupErrorMsg = SIGNUP_FAILED_MSG;
       }
     },
+
     handleSignupBtnClick() {
       // @ts-ignore
       const isFormValid = this.$refs.signupFormRef.validate();

@@ -44,14 +44,16 @@
           >
             {{ card.title }}
           </v-card-text>
-          <v-btn
-            outlined
-            :color="`${card.colorClass} darken-2`"
-            @click="handleAuthCardClick(card.authMethod)"
-            class="ga__login_view__auth_cards__card__button"
-          >
-            Login
-          </v-btn>
+          <div class="ga__login_view__auth_cards__card__actions">
+            <v-btn
+              outlined
+              :color="`${card.colorClass} darken-2`"
+              @click="handleAuthCardClick(card.authMethod)"
+              class="ga__login_view__auth_cards__card__button"
+            >
+              Login
+            </v-btn>
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -61,6 +63,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {
+  GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
   GA_LOGIN_ICON_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
@@ -81,11 +84,11 @@ export default Vue.extend({
           authMethod: GA_LOGIN_ICON_ROUTE_NAME,
         },
         {
-          title: "Other Pass",
+          title: "Face Recognition Pass",
           // @ts-ignore
-          avatar: require("@/assets/icon_pass.png"),
+          avatar: require("@/assets/face_recogn_pass.png"),
           colorClass: "indigo",
-          authMethod: "",
+          authMethod: GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
         },
         {
           title: "Other Pass",
@@ -159,6 +162,7 @@ export default Vue.extend({
     &__container {
       height: 100%;
       padding: 0 1%;
+      position: relative;
 
       @media screen and (max-width: 600px) {
         padding: 2% 2%;
@@ -213,6 +217,16 @@ export default Vue.extend({
 
       &__button {
         margin-bottom: 2%;
+      }
+
+      &__actions {
+        position: absolute;
+        top: 90%;
+        bottom: 0;
+        flex-flow: column wrap;
+        align-content: center;
+        justify-content: center;
+        width: 100%;
       }
     }
   }

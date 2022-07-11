@@ -4,6 +4,11 @@ declare module GA {
     version: string;
   }
 
+  export interface ImageFile {
+    _id: string;
+    filename: string;
+  }
+
   // store modules state interfaces
   export interface AuthenticationState {
     gaToken: string;
@@ -15,6 +20,18 @@ declare module GA {
     iconsCategories: IconCategoryBase[];
   }
 
+  export interface ImagesState {
+    imagesCategories: ImageCategoryBase[];
+    peopleFacesImages: any[];
+    foundPeopleFacesImage: any;
+    foundActualPeopleFacesImage: any;
+    actualPeopleFacesImage: any[];
+    uploadedFaceImages: any[];
+    uploadedImages: string[];
+    actualUploadedImages: any[];
+    userUploadedImages: string[];
+  }
+
   // base entities interfaces
   export interface UserBase {
     userName: string;
@@ -22,10 +39,18 @@ declare module GA {
     email?: string;
     password: string;
   }
-  export interface IconCategoryBase {
+
+  interface Category {
     _id: string;
     category: string;
+  }
+  export interface IconCategoryBase extends Category {
     icons: string[];
+  }
+
+  // TO DO
+  export interface ImageCategoryBase extends Category {
+    label?: string;
   }
 
   export interface MockStoreState extends GA.RootState {

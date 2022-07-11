@@ -44,24 +44,28 @@
           >
             {{ card.title }}
           </v-card-text>
-          <v-btn
-            outlined
-            :color="`${card.colorClass} darken-2`"
-            @click="handleSignupCardClick(card.signupMethod)"
-            class="ga__signup_view__auth_cards__card__button"
-          >
-            signup
-          </v-btn>
-          <div class="text-overline blue-grey--text mt-2">Already have an account?</div>
-          <v-btn
-            text
-            small
-            :color="`${card.colorClass} darken-2`"
-            @click="handleAuthCardClick(card.loginMethod)"
-            class="ga__signup_view__auth_cards__card__button"
-          >
-            login
-          </v-btn>
+          <div class="text-overline ga__signup_view__auth_cards__card__actions">
+            <v-btn
+              outlined
+              :color="`${card.colorClass} darken-2`"
+              @click="handleSignupCardClick(card.signupMethod)"
+              class="ga__signup_view__auth_cards__card__button"
+            >
+              signup
+            </v-btn>
+            <div class="text-overline blue-grey--text mt-2">
+              Already have an account?
+            </div>
+            <v-btn
+              text
+              small
+              :color="`${card.colorClass} darken-2`"
+              @click="handleAuthCardClick(card.loginMethod)"
+              class="ga__signup_view__auth_cards__card__button"
+            >
+              login
+            </v-btn>
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -71,7 +75,9 @@
 <script lang="ts">
 import Vue from "vue";
 import {
+  GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
   GA_LOGIN_ICON_ROUTE_NAME,
+  GA_SIGNUP_FACE_RECOGN_ROUTE_NAME,
   GA_SIGNUP_ICON_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
@@ -93,12 +99,12 @@ export default Vue.extend({
           loginMethod: GA_LOGIN_ICON_ROUTE_NAME,
         },
         {
-          title: "Other Pass",
+          title: "Face Recognition Pass",
           // @ts-ignore
-          avatar: require("@/assets/to_be_implemented.png"),
+          avatar: require("@/assets/face_recogn_pass.png"),
           colorClass: "indigo",
-          signupMethod: "",
-          loginMethod: "",
+          signupMethod: GA_SIGNUP_FACE_RECOGN_ROUTE_NAME,
+          loginMethod: GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
         },
         {
           title: "Other Pass",
@@ -169,19 +175,24 @@ export default Vue.extend({
 
   &__auth_cards {
     height: 60%;
+
     @media screen and (max-width: 600px) {
       margin: 65% 2%;
       height: 37%;
     }
+
     padding: 0 2%;
+
     &__container {
       height: 100%;
       padding: 0 1%;
+      position: relative;
 
       @media screen and (max-width: 600px) {
         padding: 2% 2%;
       }
     }
+
     &__card {
       height: 100%;
       border-top-left-radius: 30% 20% !important;
@@ -225,12 +236,21 @@ export default Vue.extend({
       }
 
       &__title {
-        padding-top: 10%;
+        padding-top: 8%;
         font-size: 1.5rem !important;
       }
 
       &__button {
         margin-bottom: 2%;
+      }
+
+      &__actions {
+        position: absolute;
+        bottom: 0;
+        flex-flow: column wrap;
+        align-content: center;
+        justify-content: center;
+        width: 100%;
       }
     }
   }

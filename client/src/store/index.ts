@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex, { StoreOptions } from "vuex";
 import { authentication } from "./modules/authentication";
 import { icons } from "./modules/icons";
+import { images } from "./modules/images";
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ const store: StoreOptions<GA.RootState> = {
   modules: {
     authentication,
     icons,
+    images,
   },
 };
 
