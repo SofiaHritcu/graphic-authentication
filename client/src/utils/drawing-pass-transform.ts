@@ -4,6 +4,14 @@ const transformDrawingName = (drawingName: string, last = false): string => {
     : drawingName.replace(".png", "");
 };
 
+export const transformDrawingPassSignup = (imagePass: string[]): string => {
+  return imagePass.reduce((acc, imgPass, index, imagePassArr) => {
+    return index !== imagePassArr.length - 1
+      ? acc.concat(transformDrawingName(imgPass))
+      : acc.concat(transformDrawingName(imgPass, true));
+  }, "");
+};
+
 export const transformDrawingPass = (
   drawingPass: string[],
   allInUserUploadedDrawings: boolean,

@@ -270,7 +270,10 @@ import {
   SIGNUP_FAILED_MSG,
 } from "@/config/error-messages";
 import { mapActions, mapGetters } from "vuex";
-import { transformDrawingPass } from "@/utils/drawing-pass-transform";
+import {
+  transformDrawingPass,
+  transformDrawingPassSignup,
+} from "@/utils/drawing-pass-transform";
 
 export default Vue.extend({
   components: { DrawingCanvas },
@@ -379,10 +382,8 @@ export default Vue.extend({
       }
 
       // step 2. transform drawing pass
-      this.passAfterTransformation = transformDrawingPass(
-        this.uploadedDrawings,
-        true,
-        []
+      this.passAfterTransformation = transformDrawingPassSignup(
+        this.uploadedDrawings
       );
 
       // step 3. signup user
