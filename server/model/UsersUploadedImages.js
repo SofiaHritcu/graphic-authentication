@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// create the IconsCategory Schema
+// create the UsersUploadedImages Schema
 const UsersUploadedImagesSchema = new Schema({
   userName: {
     type: String,

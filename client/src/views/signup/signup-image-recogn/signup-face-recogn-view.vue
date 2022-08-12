@@ -235,6 +235,9 @@
         </v-btn>
       </template>
     </v-snackbar>
+    <v-overlay :value="signupInProgressOverlay" :opacity="0.95">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -293,6 +296,7 @@ export default Vue.extend({
       imagePassStrengthInterval: null as any,
       signupErrorShows: false,
       signupErrorMsg: "Invalid username!",
+      signupInProgressOverlay: false,
     };
   },
   async created() {
@@ -446,11 +450,17 @@ export default Vue.extend({
           localStorage.removeItem("GA-user-uploaded-face-images");
           localStorage.removeItem("GA-uploaded-face-images");
 
-          this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+          setTimeout(() => {
+            this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+            this.signupInProgressOverlay = false;
+          }, 1000);
         }
       } catch (err) {
-        this.signupErrorShows = true;
-        this.signupErrorMsg = SIGNUP_FAILED_MSG;
+        setTimeout(() => {
+          this.signupErrorShows = true;
+          this.signupErrorMsg = SIGNUP_FAILED_MSG;
+          this.signupInProgressOverlay = false;
+        }, 1000);
       }
     },
 
@@ -463,6 +473,7 @@ export default Vue.extend({
         // @ts-ignore
         this.$refs.signupFormRef.reset();
       } else {
+        this.signupInProgressOverlay = true;
         this.submitSignup();
       }
     },

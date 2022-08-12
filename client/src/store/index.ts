@@ -3,6 +3,9 @@ import Vuex, { StoreOptions } from "vuex";
 import { authentication } from "./modules/authentication";
 import { icons } from "./modules/icons";
 import { images } from "./modules/images";
+import { drawings } from "./modules/drawings";
+import { drawingsSimilarity } from "./modules/drawings_similarity";
+import { bufferDrawings } from "./modules/buffer_drawings";
 
 Vue.use(Vuex);
 
@@ -14,6 +17,9 @@ const store: StoreOptions<GA.RootState> = {
     authentication,
     icons,
     images,
+    drawings,
+    drawingsSimilarity,
+    bufferDrawings,
   },
 };
 

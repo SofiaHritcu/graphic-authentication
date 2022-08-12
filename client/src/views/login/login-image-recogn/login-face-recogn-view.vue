@@ -1,18 +1,5 @@
 <template>
   <div class="ga__login_face_recogn_view">
-    <!-- <v-file-input
-      v-model="files"
-      small-chips
-      multiple
-      name="file"
-      label="File input w/ small chips"
-    ></v-file-input>
-    <v-btn dark @click="handleUploadImage" class="ml-8">UPLOAD</v-btn>
-    <v-img
-      height="100px"
-      width="100px"
-      :src="`http://localhost:8080/ga/api/images/people_faces_actual_image/7505b27a2b2c.png`"
-    /> -->
     <v-row class="ga__login_face_recogn_view__title_row">
       <v-btn outlined :color="`indigo darken-2`" @click="handleBackBtnClick">
         Go Back To Choose IPASS
@@ -45,6 +32,7 @@
               <v-text-field
                 v-model="userName"
                 :rules="userNameRules"
+                :disabled="hasOwnImages"
                 :counter="10"
                 color="indigo"
                 label="user name"
@@ -94,7 +82,7 @@
               <v-select
                 :items="imageCategoriesItems"
                 :value="imageCategoriesItems[0]"
-                :disabled="!hasOwnImages"
+                :disabled="hasOwnImages"
                 label="face images category"
                 color="indigo"
                 item-color="indigo"
@@ -246,6 +234,9 @@
         </v-btn>
       </template>
     </v-snackbar>
+    <v-overlay :value="loginInProgressOverlay" :opacity="0.95">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -295,6 +286,7 @@ export default Vue.extend({
       ownImagesFetched: false,
       loginErrorShows: false,
       loginErrorMsg: "Invalid username!",
+      loginInProgressOverlay: false,
     };
   },
   async created() {
@@ -380,11 +372,17 @@ export default Vue.extend({
       try {
         let authSuccess = await this.fetchLogin(userToBeLoggedIn);
         if (authSuccess) {
-          this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+          setTimeout(() => {
+            this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+            this.loginInProgressOverlay = false;
+          }, 2000);
         }
       } catch (err) {
-        this.loginErrorShows = true;
-        this.loginErrorMsg = LOGIN_FAILED_MSG;
+        setTimeout(() => {
+          this.loginErrorShows = true;
+          this.loginErrorMsg = LOGIN_FAILED_MSG;
+          this.loginInProgressOverlay = false;
+        }, 1000);
       }
     },
     handleLoginBtnClick() {
@@ -396,6 +394,7 @@ export default Vue.extend({
         // @ts-ignore
         this.$refs.loginFormRef.reset();
       } else {
+        this.loginInProgressOverlay = true;
         this.submitLogin();
       }
     },

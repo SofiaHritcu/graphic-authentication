@@ -11,21 +11,32 @@ import {
   GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
   GA_SIGNUP_FACE_RECOGN_ROUTE_NAME,
   GA_UPLOAD_FACE_ROUTE_NAME,
+  GA_SIGNUP_DRAWING_ROUTE_NAME,
+  GA_LOGIN_DRAWING_ROUTE_NAME,
 } from "@/config/consts";
 
+// main views
 const WrapperView = () => import("@/views/wrapper-view.vue");
 const LandingView = () => import("@/views/landing-view.vue");
-const SignUpView = () => import("@/views/signup/signup-view.vue");
-const SignupIconView = () => import("@/views/signup/signup-icon-view.vue");
-const SignupFaceRecognView = () =>
-  import("@/views/signup/signup-face-recogn-view/signup-face-recogn-view.vue");
-const UploadFaceView = () =>
-  import("@/views/signup/signup-face-recogn-view/upload-face-image.vue");
-const LoginView = () => import("@/views/login/login-view.vue");
-const LoginIconView = () => import("@/views/login/login-icon-view.vue");
-const LoginFaceRecognView = () =>
-  import("@/views/login/login-face-recogn-view.vue");
 const LearnMoreView = () => import("@/views/learn-more-view.vue");
+// signup views
+const SignUpView = () => import("@/views/signup/signup-view.vue");
+const SignupIconView = () =>
+  import("@/views/signup/signup-icon/signup-icon-view.vue");
+const SignupFaceRecognView = () =>
+  import("@/views/signup/signup-image-recogn/signup-face-recogn-view.vue");
+const SignupDrawingView = () =>
+  import("@/views/signup/signup-drawing/signup-drawing-view.vue");
+const UploadFaceView = () =>
+  import("@/views/signup/signup-image-recogn/upload-face-image.vue");
+const LoginView = () => import("@/views/login/login-view.vue");
+// login views
+const LoginIconView = () =>
+  import("@/views/login/login-icon/login-icon-view.vue");
+const LoginFaceRecognView = () =>
+  import("@/views/login/login-image-recogn/login-face-recogn-view.vue");
+const LoginDrawingView = () =>
+  import("@/views/login/login-drawing/login-drawing-view.vue");
 
 Vue.use(VueRouter);
 
@@ -65,6 +76,11 @@ const routes: Array<RouteConfig> = [
         name: GA_UPLOAD_FACE_ROUTE_NAME,
         component: UploadFaceView,
       },
+      {
+        path: "/ga/signup/drawing",
+        name: GA_SIGNUP_DRAWING_ROUTE_NAME,
+        component: SignupDrawingView,
+      },
       // login routes
       {
         path: "/ga/login",
@@ -81,6 +97,12 @@ const routes: Array<RouteConfig> = [
         name: GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
         component: LoginFaceRecognView,
       },
+      {
+        path: "/ga/login/drawing",
+        name: GA_LOGIN_DRAWING_ROUTE_NAME,
+        component: LoginDrawingView,
+      },
+      // other routes
       {
         path: "/ga/learn",
         name: GA_LEARN_MORE_ROUTE_NAME,

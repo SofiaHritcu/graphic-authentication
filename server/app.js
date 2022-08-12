@@ -9,7 +9,9 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const authRoutes = require("./routes/api/authRoutes");
 const iconsRoutes = require("./routes/api/iconsRoutes");
-const imagesRoutes = require("./routes/api//imagesRoutes");
+const imagesRoutes = require("./routes/api/imagesRoutes");
+const drawingsRoutes = require("./routes/api/drawingsRoutes");
+const bufferDrawingsRoutes = require("./routes/api/bufferDrawingsRoutes");
 const { addPassportStrategy } = require("./middleware/authMiddleware");
 
 // -------------- INITIALIZE THE APP -----------
@@ -72,8 +74,14 @@ app.use("/ga/api/users", authRoutes);
 // add icons routes
 app.use("/ga/api/icons", iconsRoutes);
 
-// add iamges routes
+// add images routes
 app.use("/ga/api/images", imagesRoutes);
+
+// add drawings routes
+app.use("/ga/api/drawings", drawingsRoutes);
+
+// add buffer drawings routes
+app.use("/ga/api/buffer_drawings", bufferDrawingsRoutes);
 
 // -------------- ENV ----------------------
 

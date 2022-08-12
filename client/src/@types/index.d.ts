@@ -32,6 +32,25 @@ declare module GA {
     userUploadedImages: string[];
   }
 
+  export interface DrawingsState {
+    drawings: any[];
+    foundDrawing: any;
+    foundActualDrawing: any;
+    actualDrawing: any[];
+    uploadedDrawings: string[];
+    actualUploadedDrawings: any[];
+    userUploadedDrawings: string[];
+  }
+
+  export interface DrawingsSimilarityState {
+    similarityLevel: any;
+    sameSimilarityDrawings: string[];
+  }
+
+  export interface BufferDrawingsState {
+    bufferDrawings: string[];
+  }
+
   // base entities interfaces
   export interface UserBase {
     userName: string;

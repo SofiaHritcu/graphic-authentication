@@ -1,6 +1,6 @@
 <template>
-  <div class="ga__login_icon_view">
-    <v-row class="ga__login_icon_view__title_row">
+  <div class="ga__signup_icon_view">
+    <v-row class="ga__signup_icon_view__title_row">
       <v-btn outlined :color="`teal darken-2`" @click="handleBackBtnClick">
         Go Back To Choose IPASS
         <fa-icon
@@ -12,23 +12,38 @@
       </v-btn>
     </v-row>
     <v-row
-      class="ga__login_icon_view__title"
+      class="ga__signup_icon_view__title"
       align-content="center"
       justify="center"
     >
       <v-col :cols="12">
         <div
-          class="text-overline white--text text--darken-1 ga__login_icon_view__title__text"
+          class="text-overline white--text text--darken-1 ga__signup_icon_view__title__text"
         >
-          Login
+          Sign up
         </div>
       </v-col>
     </v-row>
-    <v-row class="ga__login_icon_view__content">
+    <v-row class="ga__signup_icon_view__content">
       <v-col :cols="12" :lg="6">
-        <v-form v-model="validLoginForm" :ref="loginFormRef">
-          <v-row class="ga__login_icon_view__form_row" justify="center">
-            <v-col :cols="8" class="ga__login_icon_view__form_col">
+        <v-form v-model="validSignupForm" :ref="signupFormRef">
+          <v-row class="ga__signup_icon_view__form_row" justify="center">
+            <v-col :cols="8" class="ga__signup_icon_view__form_col">
+              <v-text-field
+                v-model="name"
+                :rules="nameRules"
+                :counter="20"
+                color="teal"
+                label="first and last name"
+                required
+                filled
+                dark
+                class="ga__signup_icon_view__form_field"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row class="ga__signup_icon_view__form_row" justify="center">
+            <v-col :cols="8" class="ga__signup_icon_view__form_col">
               <v-text-field
                 v-model="userName"
                 :rules="userNameRules"
@@ -38,12 +53,26 @@
                 required
                 filled
                 dark
-                class="ga__login_icon_view__form_field"
+                class="ga__signup_icon_view__form_field"
               ></v-text-field>
             </v-col>
           </v-row>
-          <v-row class="ga__login_icon_view__form_row" justify="center">
-            <v-col :cols="8" class="ga__login_icon_view__form_col">
+          <v-row class="ga__signup_icon_view__form_row" justify="center">
+            <v-col :cols="8" class="ga__signup_icon_view__form_col">
+              <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                color="teal"
+                label="email"
+                required
+                filled
+                dark
+                class="ga__signup_icon_view__form_field"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row class="ga__signup_icon_view__form_row" justify="center">
+            <v-col :cols="8" class="ga__signup_icon_view__form_col">
               <v-select
                 :items="iconCategoriesItems"
                 :value="iconCategoriesItems[0]"
@@ -60,18 +89,18 @@
             </v-col>
           </v-row>
           <v-row :class="[{ hidden: logoVisible }]">
-            <v-col :cols="12" class="ga__login_icon_view__icons_title">
+            <v-col :cols="12" class="ga__signup_icon_view__icons_title">
               <div class="grey--text text--darken-1" v-if="!passIsComplete">
                 Choose icons for your
                 <span
-                  class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass"
+                  class="text-overline font-weight-light white--text ga__signup_icon_view__icons_title__pass"
                   >IPASS</span
                 >
               </div>
               <div class="grey--text text--darken-1" v-if="passIsComplete">
                 Your
                 <span
-                  class="text-overline font-weight-light white--text ga__login_icon_view__icons_title__pass"
+                  class="text-overline font-weight-light white--text ga__signup_icon_view__icons_title__pass"
                   >IPASS</span
                 >
                 is complete!
@@ -85,7 +114,7 @@
                   pulsate
                 />
                 <span
-                  :class="`text-overline font-weight-light ${iconPassStrengthInterval.vColor}--text text--${iconPassStrengthInterval.vOpacity} ga__login_icon_view__qualifier`"
+                  :class="`text-overline font-weight-light ${iconPassStrengthInterval.vColor}--text text--${iconPassStrengthInterval.vOpacity} ga__signup_icon_view__qualifier`"
                 >
                   {{ iconPassStrengthInterval.qualifying }}
                 </span>
@@ -93,15 +122,18 @@
             </v-col>
           </v-row>
           <v-row
-            :class="['ga__login_icon_view__icons_row', { hidden: logoVisible }]"
+            :class="[
+              'ga__signup_icon_view__icons_row',
+              { hidden: logoVisible },
+            ]"
           >
             <v-col
               :cols="2"
               v-for="(iconPass, index) in iconPasses"
               :key="index"
-              class="ga__login_icon_view__icon"
+              class="ga__signup_icon_view__icon"
             >
-              <div class="ga__login_icon_view__icon__content">
+              <div class="ga__signup_icon_view__icon__content">
                 <fa-icon
                   v-if="iconPass"
                   :icon="`fa-solid fa-${iconPass}`"
@@ -113,11 +145,11 @@
           </v-row>
         </v-form>
       </v-col>
-      <v-col :cols="12" :lg="6" class="ga__login_icon_view__icons">
+      <v-col :cols="12" :lg="6" class="ga__signup_icon_view__icons">
         <v-row
           v-if="passIsComplete"
           justify="center"
-          class="ga__login_icon_view__controls"
+          class="ga__signup_icon_view__controls"
         >
           <div
             v-if="onLargerViewPort"
@@ -128,13 +160,13 @@
           <v-btn
             outlined
             :color="`teal darken-2`"
-            ref="loginFormBtn"
-            @click="handleLoginBtnClick"
+            ref="signupFormBtn"
+            @click="handleSignupBtnClick"
             class="mr-sm-4 mb-xs-4"
           >
-            Login
+            Sign Up
           </v-btn>
-          <div class="ga__login_icon_view__controls__separator">/</div>
+          <div class="ga__signup_icon_view__controls__separator">/</div>
           <v-btn
             outlined
             :color="`teal darken-2`"
@@ -144,7 +176,7 @@
             Clear PASS
           </v-btn>
         </v-row>
-        <v-row class="ga__login_icon_view__icons__row" v-else>
+        <v-row class="ga__signup_icon_view__icons__row" v-else>
           <v-col
             :cols="3"
             v-for="(iconItem, index) in iconItems"
@@ -152,7 +184,7 @@
             align-self="center"
           >
             <div
-              class="ga__login_icon_view__icon_wrapper"
+              class="ga__signup_icon_view__icon_wrapper"
               @click="handleIconClick(iconItem)"
             >
               <fa-icon
@@ -167,26 +199,29 @@
     </v-row>
     <div
       :class="[
-        'ga__login_icon_view__logo_container',
+        'ga__signup_icon_view__logo_container',
         { hidden: !logoIsVisible },
       ]"
     >
-      <div class="ga__login_icon_view__logo"></div>
+      <div class="ga__signup_icon_view__logo"></div>
     </div>
-    <v-snackbar v-model="loginErrorShows">
-      {{ loginErrorMsg }}
+    <v-snackbar v-model="signupErrorShows">
+      {{ signupErrorMsg }}
       <template v-slot:action="{ attrs }">
         <v-btn
           color="red darken-3"
           text
           :timeout="5000"
           v-bind="attrs"
-          @click="loginErrorShows = false"
+          @click="signupErrorShows = false"
         >
           Close
         </v-btn>
       </template>
     </v-snackbar>
+    <v-overlay :value="signupInProgressOverlay" :opacity="0.95">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -194,28 +229,39 @@
 import Vue from "vue";
 import { mapActions, mapGetters } from "vuex";
 import {
-  GA_LOGIN_ROUTE_NAME,
+  GA_SIGNUP_ROUTE_NAME,
   ICONS_PASS_COUNT,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
 import {
   INVALID_USERNAME_MSG,
-  LOGIN_FAILED_MSG,
+  SIGNUP_FAILED_MSG,
 } from "@/config/error-messages";
 import { transformIconPass } from "@/utils/icon-pass-transform";
 import { getIconPassStrengthInterval } from "@/utils/pass-strength-color";
 
 export default Vue.extend({
-  name: "GALoginIconView",
+  name: "GASignupIconView",
   data() {
     return {
-      validLoginForm: false,
-      loginFormRef: "loginFormRef",
+      validSignupForm: false,
+      signupFormRef: "signupFormRef",
+      name: "",
       userName: "",
+      email: "",
+      nameRules: [
+        (v: string) => !!v || "name is required",
+        (v: string) =>
+          v.length <= 20 || "the name must be less than 20 characters",
+      ],
       userNameRules: [
         (v: string) => !!v || "username is required",
         (v: string) =>
           v.length <= 10 || "username must be less than 10 characters",
+      ],
+      emailRules: [
+        (v: string) => !!v || "e-mail is required",
+        (v: string) => /.+@.+/.test(v) || "e-mail must be valid",
       ],
       iconCategoriesItems: [],
       logoVisible: true,
@@ -225,8 +271,9 @@ export default Vue.extend({
       iconPassLastCompletedIndex: 0,
       passAfterTransformation: "",
       iconPassStrengthInterval: null as any,
-      loginErrorShows: false,
-      loginErrorMsg: "Invalid username!",
+      signupErrorShows: false,
+      signupErrorMsg: "Invalid username!",
+      signupInProgressOverlay: false,
     };
   },
   async created() {
@@ -235,11 +282,12 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions("icons", ["fetchIconsCategories"]),
-    ...mapActions("authentication", ["fetchLogin"]),
+    ...mapActions("authentication", ["fetchSignup"]),
 
     async handleBackBtnClick() {
-      await this.$router.push({ name: GA_LOGIN_ROUTE_NAME });
+      await this.$router.push({ name: GA_SIGNUP_ROUTE_NAME });
     },
+
     async setUpIconsCategories() {
       this.fetchIconsCategories().then((res) => {
         if (res) {
@@ -250,11 +298,13 @@ export default Vue.extend({
         }
       });
     },
+
     setUpDefaultIconsPass() {
       for (let index = 0; index < this.iconPassCount; index++) {
         this.iconPasses.push("");
       }
     },
+
     handleIconCategoryChange(iconCategorySelected: string) {
       if (this.logoVisible) {
         this.logoVisible = false;
@@ -265,6 +315,7 @@ export default Vue.extend({
       ).icons;
       this.iconItems = iconsSelectedCategory;
     },
+
     handleIconClick(iconItem: string) {
       if (this.logoVisible) {
         this.logoVisible = false;
@@ -289,36 +340,52 @@ export default Vue.extend({
         );
       }
     },
+
     handleClearBtnClick() {
+      this.name = "";
       this.userName = "";
-      (this.iconPasses = [] as any), (this.iconPassLastCompletedIndex = 0);
+      this.email = "";
+      this.iconPasses = [] as any;
+      this.iconPassLastCompletedIndex = 0;
       this.setUpDefaultIconsPass();
     },
-    async submitLogin() {
+
+    async submitSignup() {
       const userToBeLoggedIn = {
+        name: this.name,
         userName: this.userName,
+        email: this.email,
         password: this.passAfterTransformation,
+        confirmPassword: this.passAfterTransformation,
       };
       try {
-        let authSuccess = await this.fetchLogin(userToBeLoggedIn);
-        if (authSuccess) {
-          this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+        let signupSuccess = await this.fetchSignup(userToBeLoggedIn);
+        if (signupSuccess) {
+          setTimeout(() => {
+            this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+            this.signupInProgressOverlay = false;
+          }, 1000);
         }
       } catch (err) {
-        this.loginErrorShows = true;
-        this.loginErrorMsg = LOGIN_FAILED_MSG;
+        setTimeout(() => {
+          this.signupErrorShows = true;
+          this.signupErrorMsg = SIGNUP_FAILED_MSG;
+          this.signupInProgressOverlay = false;
+        }, 1000);
       }
     },
-    handleLoginBtnClick() {
+
+    handleSignupBtnClick() {
       // @ts-ignore
-      const isFormValid = this.$refs.loginFormRef.validate();
+      const isFormValid = this.$refs.signupFormRef.validate();
       if (!isFormValid) {
-        this.loginErrorShows = true;
-        this.loginErrorMsg = INVALID_USERNAME_MSG;
+        this.signupErrorShows = true;
+        this.signupErrorMsg = INVALID_USERNAME_MSG;
         // @ts-ignore
-        this.$refs.loginFormRef.reset();
+        this.$refs.signupFormRef.reset();
       } else {
-        this.submitLogin();
+        this.signupInProgressOverlay = true;
+        this.submitSignup();
       }
     },
   },
@@ -347,8 +414,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.ga__login_icon_view {
+.ga__signup_icon_view {
   height: 100%;
+  margin-top: -10px;
   &__title_row {
     margin: 0;
   }
@@ -358,15 +426,15 @@ export default Vue.extend({
     margin: 0;
     &__text {
       font-size: 3rem !important;
-      padding: 2% 0;
+      padding-bottom: 2%;
 
       @media screen and (max-width: 600px) {
         font-size: 2rem !important;
-        padding: 3% 0;
+        padding-bottom: 2%;
       }
       @media screen and (min-width: 600px) and (max-width: 1264px) {
         font-size: 2rem !important;
-        padding: 3% 0;
+        padding-bottom: 2%;
       }
     }
   }
@@ -376,6 +444,7 @@ export default Vue.extend({
   }
 
   &__form_col {
+    padding: 4px 0;
     width: 50%;
   }
 
@@ -385,7 +454,7 @@ export default Vue.extend({
   }
 
   &__logo_container {
-    height: 35%;
+    height: 20%;
     width: 50%;
     margin: 0;
     position: absolute;
@@ -417,8 +486,8 @@ export default Vue.extend({
       #fff176 100%
     );
 
-    border-top-right-radius: 45% 70%;
-    border-top-left-radius: 45% 70%;
+    border-top-right-radius: 45% 95%;
+    border-top-left-radius: 45% 95%;
 
     @media screen and (max-width: 768px) {
       width: 50%;

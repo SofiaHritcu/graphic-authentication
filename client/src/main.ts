@@ -4,8 +4,9 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import axios from "axios";
+// @ts-ignore
+import VueSignature from "vue-signature-pad";
 import "@/config/icons";
-
 Vue.config.productionTip = false;
 
 // setting up the default vue http module for api calls
@@ -17,6 +18,8 @@ const gaToken = localStorage.getItem("GA-token");
 if (gaToken) {
   Vue.prototype.$http.defaults.headers.common["Authorization"] = gaToken;
 }
+
+Vue.use(VueSignature);
 
 new Vue({
   router,

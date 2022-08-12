@@ -5,3 +5,5 @@ export const USERNAME_FIRST_COMPLETED =
   "The username should be completed first!";
 export const DOES_NOT_HAVE_IMAGES_UPLOADED =
   "Your username must be wrong! We didn't find any uploaded images for it!";
+export const ALREADY_CONTAINED_IN_PASS_DRAWING =
+  "Your drawing already exists in your PASS";

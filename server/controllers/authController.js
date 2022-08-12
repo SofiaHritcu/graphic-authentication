@@ -9,34 +9,35 @@ const User = require("../model/User");
  * @desc Register the User
  * @access Public
  */
-module.exports.signup_post = (req, res) => {
+module.exports.signup_post = async (req, res) => {
   let { name, userName, email, password, confirmPassword } = req.body;
+  let errorMessages = [];
   if (password !== confirmPassword) {
-    return res.status(400).json({
-      msg: "Password do not match.",
-    });
+    errorMessages.push("Password do not match.");
   }
 
   // check for the unique userName
-  User.findOne({
+  const userHasUniqueUserName = await User.findOne({
     userName,
-  }).then((user) => {
-    if (user) {
-      return res.status(400).json({
-        msg: "Username is already taken.",
-      });
-    }
   });
-  // check for the unique userName
-  User.findOne({
+  if (userHasUniqueUserName) {
+    errorMessages.push("Username is already taken.");
+  }
+
+  // check for the unique email
+  const userHasUniqueEmail = await User.findOne({
     email,
-  }).then((user) => {
-    if (user) {
-      return res.status(400).json({
-        msg: "Email is already taken.",
-      });
-    }
   });
+  if (userHasUniqueEmail) {
+    errorMessages.push("Email is already taken.");
+  }
+
+  if (errorMessages.length !== 0) {
+    return res.status(400).json({
+      msg: errorMessages,
+    });
+  }
+
   // user data registration is valid
   let userToBeRegistered = new User({
     name,
@@ -54,8 +55,6 @@ module.exports.signup_post = (req, res) => {
 
       userToBeRegistered.password = hash;
       userToBeRegistered.save().then((userRegistered) => {
-        console.log("xyzvvvv");
-
         return res.status(201).json({
           success: true,
           msg: "The user has been registered.",
@@ -67,15 +66,12 @@ module.exports.signup_post = (req, res) => {
   return;
 };
 
-console.log("cccccccccc");
-
 /**
  * @route POST ga/api/users/login
  * @desc Signing in the User
  * @access Public
  */
 module.exports.login_post = (req, res) => {
-  console.log("here");
   User.findOne({ userName: req.body.userName }).then((user) => {
     if (!user) {
       return res.status(404).json({

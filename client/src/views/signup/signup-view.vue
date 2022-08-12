@@ -75,8 +75,10 @@
 <script lang="ts">
 import Vue from "vue";
 import {
+  GA_LOGIN_DRAWING_ROUTE_NAME,
   GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
   GA_LOGIN_ICON_ROUTE_NAME,
+  GA_SIGNUP_DRAWING_ROUTE_NAME,
   GA_SIGNUP_FACE_RECOGN_ROUTE_NAME,
   GA_SIGNUP_ICON_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
@@ -107,12 +109,12 @@ export default Vue.extend({
           loginMethod: GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
         },
         {
-          title: "Other Pass",
+          title: "Drawing Pass",
           // @ts-ignore
-          avatar: require("@/assets/to_be_implemented.png"),
+          avatar: require("@/assets/drawing_pass.png"),
           colorClass: "deep-orange",
-          signupMethod: "",
-          loginMethod: "",
+          signupMethod: GA_SIGNUP_DRAWING_ROUTE_NAME,
+          loginMethod: GA_LOGIN_DRAWING_ROUTE_NAME,
         },
         {
           title: "Other Pass",
