@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkclient"]=self["webpackChunkclient"]||[]).push([[778],{2778:function(e,n,t){t.r(n),t.d(n,{default:function(){return f}});var r=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[e._v(" welcome to learning! ")])},u=[],l={name:"GALearnMoreView",data:function(){return{}},methods:{}},a=l,c=t(1001),i=(0,c.Z)(a,r,u,!1,null,"4fe2a8d6",null),f=i.exports}}]);
-//# sourceMappingURL=778-legacy.0a6456e6.js.map
