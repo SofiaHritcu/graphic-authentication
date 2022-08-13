@@ -63,6 +63,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {
+  GA_LOGGED_IN_ROUTE_NAME,
   GA_LOGIN_DRAWING_ROUTE_NAME,
   GA_LOGIN_FACE_RECOGN_ROUTE_NAME,
   GA_LOGIN_ICON_ROUTE_NAME,
@@ -155,11 +156,14 @@ export default Vue.extend({
 
   &__auth_cards {
     height: 60%;
+
     @media screen and (max-width: 600px) {
       margin: 55% 2%;
       height: 37%;
     }
+
     padding: 0 2%;
+
     &__container {
       height: 100%;
       padding: 0 1%;
@@ -169,6 +173,7 @@ export default Vue.extend({
         padding: 2% 2%;
       }
     }
+
     &__card {
       height: 100%;
       border-top-left-radius: 30% 20% !important;
@@ -229,6 +234,12 @@ export default Vue.extend({
         justify-content: center;
         width: 100%;
       }
+    }
+
+    &__card:hover {
+      transform: scale(1.05);
+      transition-timing-function: ease-in;
+      transition: 0.2s;
     }
   }
 }

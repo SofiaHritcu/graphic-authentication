@@ -208,8 +208,8 @@
 import Vue from "vue";
 import {
   DRAWINGS_PASS_COUNT,
+  GA_LOGGED_IN_ROUTE_NAME,
   GA_LOGIN_ROUTE_NAME,
-  GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
 import { mapActions, mapGetters } from "vuex";
 import {
@@ -221,6 +221,7 @@ import {
 import { shuffleArray } from "@/utils/array-shuffle";
 import { prototype } from "vue/types/umd";
 import { transformDrawingPass } from "@/utils/drawing-pass-transform";
+import { drawings } from "@/store/modules/drawings";
 
 export default Vue.extend({
   components: {},
@@ -301,17 +302,13 @@ export default Vue.extend({
       try {
         let authSuccess = await this.fetchLogin(userToBeLoggedIn);
         if (authSuccess) {
-          setTimeout(() => {
-            this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
-            this.loginInProgressOverlay = false;
-          }, 2000);
+          this.$router.push({ name: GA_LOGGED_IN_ROUTE_NAME });
+          this.loginInProgressOverlay = false;
         }
       } catch (err) {
-        setTimeout(() => {
-          this.loginErrorShows = true;
-          this.loginErrorMsg = LOGIN_FAILED_MSG;
-          this.loginInProgressOverlay = false;
-        }, 1000);
+        this.loginErrorShows = true;
+        this.loginErrorMsg = LOGIN_FAILED_MSG;
+        this.loginInProgressOverlay = false;
       }
     },
     handleLoginBtnClick() {
@@ -482,16 +479,16 @@ $dot-space: 22px;
     height: 100%;
     width: 50%;
     margin-left: 25%;
-    background: linear-gradient(
-      90deg,
+    background: conic-gradient(
       #4db6ac 0%,
       #9fa8da 25%,
       #ff7043 50%,
-      #fff176 100%
+      #fff176 80%,
+      #4db6ac 100%
     );
 
-    border-top-right-radius: 45% 70%;
-    border-top-left-radius: 45% 70%;
+    border-top-right-radius: 50% 70%;
+    border-top-left-radius: 50% 70%;
 
     @media screen and (max-width: 768px) {
       width: 50%;

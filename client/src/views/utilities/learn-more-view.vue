@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import appMenu from "@/components/ui/app-menu.vue";
 export default {
   components: { appMenu },

@@ -262,8 +262,8 @@ import Vue from "vue";
 import DrawingCanvas from "@/components/ui/drawing/drawing-canvas.vue";
 import {
   DRAWINGS_PASS_COUNT,
+  GA_LOGGED_IN_ROUTE_NAME,
   GA_SIGNUP_ROUTE_NAME,
-  GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
 import {
   INVALID_USERNAME_MSG,
@@ -274,6 +274,7 @@ import {
   transformDrawingPass,
   transformDrawingPassSignup,
 } from "@/utils/drawing-pass-transform";
+import { sameSimilarityDrawings } from "@/store/modules/drawings_similarity/getters";
 
 export default Vue.extend({
   components: { DrawingCanvas },
@@ -441,7 +442,7 @@ export default Vue.extend({
 
     async handleCloseAfterSignupOverlay() {
       this.signupInProgressOverlay = false;
-      this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+      this.$router.push({ name: GA_LOGGED_IN_ROUTE_NAME });
     },
 
     getActualDrawingDromURL(drawingURL: string) {

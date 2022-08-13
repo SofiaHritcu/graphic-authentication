@@ -1,6 +1,7 @@
 // graphic authentication route names
 export const GA_ROUTE_NAME = "ga";
 export const GA_WELCOME_ROUTE_NAME = "ga-welcome";
+export const GA_LOGGED_WELCOME_ROUTE_NAME = "ga-logged-welcome";
 export const GA_SIGNUP_ROUTE_NAME = "ga-signup";
 export const GA_SIGNUP_ICON_ROUTE_NAME = "ga-signup-icon";
 export const GA_SIGNUP_FACE_RECOGN_ROUTE_NAME = "ga-signup-face-recogn";
@@ -11,6 +12,8 @@ export const GA_LOGIN_ICON_ROUTE_NAME = "ga-login-icon";
 export const GA_LOGIN_FACE_RECOGN_ROUTE_NAME = "ga-login-face-recogn";
 export const GA_LOGIN_DRAWING_ROUTE_NAME = "ga-login-drawing";
 export const GA_LEARN_MORE_ROUTE_NAME = "ga-learn-more";
+export const GA_LOGGED_IN_ROUTE_NAME = "ga-logged-in";
+export const GA_IPASS_MANAGER_ROUTE_NAME = "ga-ipass-manager";
 
 // passwords default
 export const ICONS_PASS_COUNT = 6;

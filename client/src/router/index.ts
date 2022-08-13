@@ -13,12 +13,17 @@ import {
   GA_UPLOAD_FACE_ROUTE_NAME,
   GA_SIGNUP_DRAWING_ROUTE_NAME,
   GA_LOGIN_DRAWING_ROUTE_NAME,
+  GA_LOGGED_IN_ROUTE_NAME,
+  GA_LOGGED_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
 
 // main views
-const WrapperView = () => import("@/views/wrapper-view.vue");
-const LandingView = () => import("@/views/landing-view.vue");
-const LearnMoreView = () => import("@/views/learn-more-view.vue");
+const WrapperView = () => import("@/views/utilities/wrapper-view.vue");
+const LandingView = () => import("@/views/landing/landing-view.vue");
+const LoggedInLandingView = () =>
+  import("@/views/landing/logged-in-landing-view.vue");
+const LearnMoreView = () => import("@/views/utilities/learn-more-view.vue");
+const LoggedInView = () => import("@/views/logged/logged-in-view.vue");
 // signup views
 const SignUpView = () => import("@/views/signup/signup-view.vue");
 const SignupIconView = () =>
@@ -37,8 +42,14 @@ const LoginFaceRecognView = () =>
   import("@/views/login/login-image-recogn/login-face-recogn-view.vue");
 const LoginDrawingView = () =>
   import("@/views/login/login-drawing/login-drawing-view.vue");
+// not found
+const NotFoundView = () => import("@/views/utilities/not-found-view.vue");
 
 Vue.use(VueRouter);
+
+const isLoggedIn = () => {
+  return localStorage.getItem("GA-token") !== null;
+};
 
 const routes: Array<RouteConfig> = [
   {
@@ -54,6 +65,21 @@ const routes: Array<RouteConfig> = [
         path: "/ga/welcome",
         name: GA_WELCOME_ROUTE_NAME,
         component: LandingView,
+      },
+      {
+        path: "/ga/logged-welcome",
+        name: GA_LOGGED_WELCOME_ROUTE_NAME,
+        component: LoggedInLandingView,
+        beforeEnter: (to, from, next) => {
+          if (!isLoggedIn()) {
+            // if the user is not logged in yet
+            // redirect to login view
+            next({ name: GA_LOGIN_ROUTE_NAME });
+          } else {
+            // otherwise proceed to the guarded view
+            next();
+          }
+        },
       },
       // signup routes
       {
@@ -108,7 +134,33 @@ const routes: Array<RouteConfig> = [
         name: GA_LEARN_MORE_ROUTE_NAME,
         component: LearnMoreView,
       },
+      {
+        path: "/ga/logged",
+        name: GA_LOGGED_IN_ROUTE_NAME,
+        component: LoggedInView,
+        beforeEnter: (to, from, next) => {
+          if (!isLoggedIn()) {
+            // if the user is not logged in yet
+            // redirect to login view
+            next({ name: GA_LOGIN_ROUTE_NAME });
+          } else {
+            // otherwise proceed to the guarded view
+            next();
+          }
+        },
+      },
     ],
+  },
+  // not found
+  {
+    path: "*",
+    component: NotFoundView,
+  },
+  // home
+  {
+    path: "/",
+    name: GA_ROUTE_NAME,
+    component: WrapperView,
   },
 ];
 
@@ -117,5 +169,15 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+// router.beforeEach(async (to, from, next) => {
+//   if (
+//     (!isLoggedIn && to.name === GA_LOGGED_IN_ROUTE_NAME) ||
+//     GA_LOGGED_WELCOME_ROUTE_NAME
+//   ) {
+//     // redirect the user to the login page
+//     next({ name: GA_LOGIN_ROUTE_NAME });
+//   } else next({ name: to.name ?? GA_WELCOME_ROUTE_NAME });
+// });
 
 export default router;

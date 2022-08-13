@@ -255,6 +255,12 @@ export default Vue.extend({
         width: 100%;
       }
     }
+
+    &__card:hover {
+      transform: scale(1.05);
+      transition-timing-function: ease-in;
+      transition: 0.2s;
+    }
   }
 }
 </style>

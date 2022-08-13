@@ -14,30 +14,61 @@
     >
       {{ link.title }}
     </v-btn>
+    <v-btn
+      v-if="isLoggedIn"
+      outlined
+      :color="`${color} darken-2`"
+      :class="['ga__app_menu__link', 'ml-2']"
+      @click="handleLogout"
+    >
+      logout
+    </v-btn>
+    <v-overlay :value="showLeavingViewOverlay" z-index="0" opacity="0.85">
+      <div class="ga__app_menu__overlay__content">
+        <div
+          class="text-overline white--text text--lighten-2 ga__app_menu__overlay__centered"
+        >
+          Are you sure you want to leave?
+        </div>
+        <div>
+          <v-btn
+            class="white--text mr-4"
+            outlined
+            :color="`red lighten-2`"
+            @click="showLeavingViewOverlay = !showLeavingViewOverlay"
+          >
+            no
+          </v-btn>
+          <v-btn
+            class="white--text"
+            outlined
+            :color="`green lighten-2`"
+            @click="logoutUser"
+          >
+            yes
+          </v-btn>
+        </div>
+      </div>
+    </v-overlay>
   </div>
 </template>
 
 <script lang="ts">
 import {
   GA_LEARN_MORE_ROUTE_NAME,
+  GA_LOGGED_WELCOME_ROUTE_NAME,
   GA_LOGIN_ROUTE_NAME,
   GA_SIGNUP_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
 import Vue from "vue";
+import { mapActions } from "vuex";
 
 export default Vue.extend({
   name: "ClientAppMenu",
 
   data() {
-    return {
-      appMenuLinks: [
-        { title: "home", routeName: GA_WELCOME_ROUTE_NAME },
-        { title: "login", routeName: GA_LOGIN_ROUTE_NAME },
-        { title: "sign up", routeName: GA_SIGNUP_ROUTE_NAME },
-        { title: "learn", routeName: GA_LEARN_MORE_ROUTE_NAME },
-      ],
-    };
+    return { showLeavingViewOverlay: false };
   },
 
   props: {
@@ -52,6 +83,8 @@ export default Vue.extend({
   },
 
   methods: {
+    ...mapActions("authentication", ["fetchLogout"]),
+
     async handleAppMenuItemClick(routeName: string) {
       if (this.$route.name !== routeName) {
         await this.$router.push({ name: routeName });
@@ -59,6 +92,35 @@ export default Vue.extend({
     },
     isLinkSelected(routeName: string) {
       return this.$route.name === routeName;
+    },
+    handleLogout() {
+      this.showLeavingViewOverlay = !this.showLeavingViewOverlay;
+    },
+    async logoutUser() {
+      this.fetchLogout();
+      await this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+    },
+  },
+
+  computed: {
+    isLoggedIn(): boolean {
+      return localStorage.getItem("GA-token") !== null;
+    },
+
+    appMenuLinks() {
+      if (!this.isLoggedIn) {
+        return [
+          { title: "home", routeName: GA_WELCOME_ROUTE_NAME },
+          { title: "login", routeName: GA_LOGIN_ROUTE_NAME },
+          { title: "sign up", routeName: GA_SIGNUP_ROUTE_NAME },
+          { title: "learn", routeName: GA_LEARN_MORE_ROUTE_NAME },
+        ];
+      }
+
+      return [
+        { title: "home", routeName: GA_LOGGED_WELCOME_ROUTE_NAME },
+        { title: "learn", routeName: GA_LEARN_MORE_ROUTE_NAME },
+      ];
     },
   },
 });
@@ -84,6 +146,18 @@ export default Vue.extend({
 
   &__link--selected:hover {
     cursor: default;
+  }
+
+  &__overlay {
+    &__content {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+    }
+
+    &__centered {
+      text-align: center;
+    }
   }
 }
 </style>

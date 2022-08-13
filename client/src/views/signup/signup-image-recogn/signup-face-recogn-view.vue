@@ -245,11 +245,11 @@
 import Vue from "vue";
 import { mapActions, mapGetters } from "vuex";
 import {
+  GA_LOGGED_IN_ROUTE_NAME,
   GA_PEOPLE_IMAGE_CATEGORY,
   GA_SIGNUP_ROUTE_NAME,
   GA_UPLOADED_IMAGE_CATEGORY,
   GA_UPLOAD_FACE_ROUTE_NAME,
-  GA_WELCOME_ROUTE_NAME,
   IMAGES_PASS_COUNT,
 } from "@/config/consts";
 import {
@@ -450,17 +450,13 @@ export default Vue.extend({
           localStorage.removeItem("GA-user-uploaded-face-images");
           localStorage.removeItem("GA-uploaded-face-images");
 
-          setTimeout(() => {
-            this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
-            this.signupInProgressOverlay = false;
-          }, 1000);
+          this.$router.push({ name: GA_LOGGED_IN_ROUTE_NAME });
+          this.signupInProgressOverlay = false;
         }
       } catch (err) {
-        setTimeout(() => {
-          this.signupErrorShows = true;
-          this.signupErrorMsg = SIGNUP_FAILED_MSG;
-          this.signupInProgressOverlay = false;
-        }, 1000);
+        this.signupErrorShows = true;
+        this.signupErrorMsg = SIGNUP_FAILED_MSG;
+        this.signupInProgressOverlay = false;
       }
     },
 
@@ -568,16 +564,17 @@ export default Vue.extend({
     height: 100%;
     width: 50%;
     margin-left: 25%;
-    background: linear-gradient(
-      90deg,
+    background: conic-gradient(
+      at 50% 80%,
       #4db6ac 0%,
       #9fa8da 25%,
       #ff7043 50%,
-      #fff176 100%
+      #fff176 80%,
+      #4db6ac 100%
     );
 
-    border-top-right-radius: 45% 95%;
-    border-top-left-radius: 45% 95%;
+    border-top-right-radius: 50% 95%;
+    border-top-left-radius: 50% 95%;
 
     @media screen and (max-width: 768px) {
       width: 50%;

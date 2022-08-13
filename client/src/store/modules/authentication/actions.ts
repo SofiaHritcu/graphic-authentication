@@ -9,15 +9,18 @@ export const fetchLogin: ActionHandler<
   const response = await axios.post("/ga/api/users/login", user);
   if (response.data.success) {
     const gaToken = response.data.token;
-    const user = response.data.user;
+    const loggedInUser = response.data.user;
+
+    console.log(loggedInUser);
 
     // store the token on local storage
     localStorage.setItem("GA-token", gaToken);
+    localStorage.setItem("GA-name", loggedInUser.name ?? "");
     // set the axios defaults
     axios.defaults.headers.common["Authorization"] = gaToken;
     commit("setAuthenticationSucceeded");
     commit("setGaToken", gaToken);
-    commit("setUser", user);
+    commit("setUser", loggedInUser);
   }
   return response.data.success;
 };
@@ -34,7 +37,20 @@ export const fetchSignup: ActionHandler<
   return response.data.success;
 };
 
+export const fetchLogout: ActionHandler<
+  GA.AuthenticationState,
+  GA.RootState
+> = async ({ commit }): Promise<void> => {
+  // delete the token from local storage
+  localStorage.removeItem("GA-token");
+  localStorage.removeItem("GA-name");
+
+  commit("setGaToken", "");
+  commit("setUser", "");
+};
+
 export const actions: ActionTree<GA.AuthenticationState, GA.RootState> = {
   fetchLogin,
   fetchSignup,
+  fetchLogout,
 };
