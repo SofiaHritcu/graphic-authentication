@@ -306,17 +306,13 @@ export default Vue.extend({
       try {
         let authSuccess = await this.fetchLogin(userToBeLoggedIn);
         if (authSuccess) {
-          setTimeout(() => {
-            this.$router.push({ name: GA_LOGGED_IN_ROUTE_NAME });
-            this.loginInProgressOverlay = false;
-          }, 2000);
+          this.$router.push({ name: GA_LOGGED_IN_ROUTE_NAME });
+          this.loginInProgressOverlay = false;
         }
       } catch (err) {
-        setTimeout(() => {
-          this.loginErrorShows = true;
-          this.loginErrorMsg = LOGIN_FAILED_MSG;
-          this.loginInProgressOverlay = false;
-        }, 1000);
+        this.loginErrorShows = true;
+        this.loginErrorMsg = LOGIN_FAILED_MSG;
+        this.loginInProgressOverlay = false;
       }
     },
     async handleLoginBtnClick() {
