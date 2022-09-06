@@ -15,14 +15,23 @@
             What next?
           </div>
           <div>
-            <v-btn
-              outlined
+            <v-badge
               color="teal lighten-2"
-              x-large
-              class="mt-3 mb-3"
-              @click="handleButtonClick(ipassManagerRouteName)"
-              >IPASS MANAGER</v-btn
+              offsetX="50"
+              offsetY="20"
+              :content="'Coming soon!'"
+              overlap
             >
+              <v-btn
+                disabled
+                dark
+                color="teal lighten-2"
+                x-large
+                class="white--text mt-3 mb-3"
+                @click="handleButtonClick(ipassManagerRouteName)"
+                >IPASS MANAGER</v-btn
+              >
+            </v-badge>
           </div>
           <div>
             <v-btn
