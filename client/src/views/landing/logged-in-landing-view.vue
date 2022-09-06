@@ -40,16 +40,6 @@
           <div>
             <v-btn
               outlined
-              color="yellow lighten-2"
-              x-large
-              class="mb-3"
-              @click="handleButtonClick(learnMoreRouteName)"
-              >Learn More</v-btn
-            >
-          </div>
-          <div>
-            <v-btn
-              outlined
               color="deep-orange lighten-1"
               x-large
               @click="handleLogout"

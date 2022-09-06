@@ -32,15 +32,6 @@
               >Log In</v-btn
             >
           </div>
-          <div>
-            <v-btn
-              outlined
-              color="yellow lighten-2"
-              x-large
-              @click="handleButtonClick(learnMoreRouteName)"
-              >Learn More</v-btn
-            >
-          </div>
         </v-col>
       </v-row>
     </div>
