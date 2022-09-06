@@ -156,7 +156,11 @@
                 rounded="lg"
                 v-if="imagePass"
               >
-                <v-img :src="getUrlByCurrentCategory(imagePass)" />
+                <div
+                  v-if="iconPassesToBeHidden[index]"
+                  class="pass_item__hidden"
+                ></div>
+                <v-img v-else :src="getUrlByCurrentCategory(imagePass)" />
               </v-avatar>
             </v-col>
           </v-row>
@@ -291,6 +295,7 @@ export default Vue.extend({
       currentCategory: "",
       imagePasses: [] as any,
       imageItems: [],
+      iconPassesToBeHidden: [] as any,
       imagePassLastCompletedIndex: 0,
       passAfterTransformation: "",
       imagePassStrengthInterval: null as any,
@@ -393,7 +398,14 @@ export default Vue.extend({
       }
       return `http://localhost:8080/ga/api/images/${currentCategoryUrl}/${currentImageFilename}`;
     },
-
+    hidePassItem() {
+      setTimeout(() => {
+        this.iconPassesToBeHidden = {
+          ...this.iconPassesToBeHidden,
+          [this.imagePassLastCompletedIndex - 1]: true,
+        };
+      }, 300);
+    },
     handleImageClick(imageItemFileName: string) {
       if (this.logoVisible) {
         this.logoVisible = false;
@@ -417,6 +429,7 @@ export default Vue.extend({
           this.passAfterTransformation
         );
       }
+      this.hidePassItem();
     },
 
     handleClearBtnClick() {
@@ -426,6 +439,7 @@ export default Vue.extend({
       this.email = "";
       this.imagePasses = [] as any;
       this.imagePassLastCompletedIndex = 0;
+      this.iconPassesToBeHidden = [] as any;
       this.setUpDefaultImagesPass();
     },
 
@@ -482,7 +496,9 @@ export default Vue.extend({
     ]),
     onLargerViewPort(): boolean {
       return (
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "lg" ||
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "xl"
       );
     },
@@ -699,5 +715,17 @@ export default Vue.extend({
   flex-basis: 100%;
   height: 0;
   text-align: center;
+}
+
+.pass_item__hidden {
+  background: conic-gradient(
+    #4db6ac 0%,
+    #9fa8da 25%,
+    #ff7043 50%,
+    #fff176 80%,
+    #4db6ac 100%
+  );
+  height: 100%;
+  width: 100%;
 }
 </style>
