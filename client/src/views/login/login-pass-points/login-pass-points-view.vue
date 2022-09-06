@@ -382,7 +382,9 @@ export default Vue.extend({
 
     onLargerViewPort(): boolean {
       return (
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "lg" ||
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "xl"
       );
     },

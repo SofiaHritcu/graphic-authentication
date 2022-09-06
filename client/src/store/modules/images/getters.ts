@@ -40,6 +40,10 @@ export const userUploadedImages: Getter<GA.ImagesState, GA.RootState> = (
   state
 ): string[] => state.userUploadedImages;
 
+export const bufferPeopleFacesImages: Getter<GA.ImagesState, GA.RootState> = (
+  state
+): string[] => state.bufferPeopleFacesImages;
+
 export const getters: GetterTree<GA.ImagesState, GA.RootState> = {
   imagesCategories,
   peopleFacesImages,
@@ -50,4 +54,5 @@ export const getters: GetterTree<GA.ImagesState, GA.RootState> = {
   uploadedImages,
   actualUploadedImages,
   userUploadedImages,
+  bufferPeopleFacesImages,
 };

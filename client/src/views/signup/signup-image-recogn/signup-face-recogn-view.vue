@@ -164,6 +164,25 @@
               </v-avatar>
             </v-col>
           </v-row>
+          <v-row
+            v-if="passIsComplete"
+            class="ga__signup_face_recogn_view__show_pass_row"
+          >
+            <v-btn
+              outlined
+              small
+              :color="`grey darken-2`"
+              @click="handleSeePass"
+              class="mr-3"
+            >
+              <fa-icon
+                icon="fa-solid fa-eye"
+                class="mr-2"
+                color="grey darken-2"
+              />
+              Show PASS
+            </v-btn>
+          </v-row>
         </v-form>
       </v-col>
       <v-col :cols="12" :lg="6" class="ga__signup_face_recogn_view__images">
@@ -398,6 +417,22 @@ export default Vue.extend({
       }
       return `http://localhost:8080/ga/api/images/${currentCategoryUrl}/${currentImageFilename}`;
     },
+
+    handleSeePass() {
+      for (const imagePassToBeHidden in this.imagePassesToBeHidden) {
+        this.imagePassesToBeHidden[imagePassToBeHidden] =
+          !this.imagePassesToBeHidden[imagePassToBeHidden];
+      }
+      if (!this.imagePassesToBeHidden[0]) {
+        setTimeout(() => {
+          for (const imagePassToBeHidden in this.imagePassesToBeHidden) {
+            this.imagePassesToBeHidden[imagePassToBeHidden] =
+              !this.imagePassesToBeHidden[imagePassToBeHidden];
+          }
+        }, 400);
+      }
+    },
+
     hidePassItem() {
       setTimeout(() => {
         this.imagePassesToBeHidden = {
@@ -704,6 +739,11 @@ export default Vue.extend({
     background-color: #9fa8da;
     opacity: 0.5;
     cursor: pointer;
+  }
+
+  &__show_pass_row {
+    display: flex;
+    justify-content: center;
   }
 }
 

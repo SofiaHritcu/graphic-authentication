@@ -147,6 +147,25 @@
               </div>
             </v-col>
           </v-row>
+          <v-row
+            v-if="passIsComplete"
+            class="ga__signup_icon_view__show_pass_row"
+          >
+            <v-btn
+              outlined
+              small
+              :color="`grey darken-2`"
+              @click="handleSeePass"
+              class="mr-3"
+            >
+              <fa-icon
+                icon="fa-solid fa-eye"
+                class="mr-2"
+                color="grey darken-2"
+              />
+              Show PASS
+            </v-btn>
+          </v-row>
         </v-form>
       </v-col>
       <v-col :cols="12" :lg="6" class="ga__signup_icon_view__icons">
@@ -319,6 +338,20 @@ export default Vue.extend({
         (ic: GA.IconCategoryBase) => ic.category === iconCategorySelected
       ).icons;
       this.iconItems = iconsSelectedCategory;
+    },
+    handleSeePass() {
+      for (const iconPassToBeHidden in this.iconPassesToBeHidden) {
+        this.iconPassesToBeHidden[iconPassToBeHidden] =
+          !this.iconPassesToBeHidden[iconPassToBeHidden];
+      }
+      if (!this.iconPassesToBeHidden[0]) {
+        setTimeout(() => {
+          for (const iconPassToBeHidden in this.iconPassesToBeHidden) {
+            this.iconPassesToBeHidden[iconPassToBeHidden] =
+              !this.iconPassesToBeHidden[iconPassToBeHidden];
+          }
+        }, 400);
+      }
     },
     hidePassItem() {
       setTimeout(() => {
@@ -591,6 +624,11 @@ export default Vue.extend({
 
   &__qualifier {
     vertical-align: text-bottom;
+  }
+
+  &__show_pass_row {
+    display: flex;
+    justify-content: center;
   }
 }
 

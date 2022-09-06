@@ -91,10 +91,10 @@
                   </div>
                   <div class="grey--text text--darken-1" v-if="passIsComplete">
                     Your
-                    <!-- <span
+                    <span
                       class="text-overline font-weight-light white--text ga__signup_drawing_view__drawings_title__pass"
                       >IPASS</span
-                    > -->
+                    >
                     is complete!
                   </div>
                 </v-col>
@@ -126,8 +126,28 @@
                     />
                   </div>
                 </v-col>
-              </v-row> </v-form
-          ></v-col>
+              </v-row>
+              <v-row
+                v-if="passIsComplete"
+                class="ga__signup_drawing_view__show_pass_row"
+              >
+                <v-btn
+                  outlined
+                  small
+                  :color="`grey darken-2`"
+                  @click="handleSeePass"
+                  class="mr-3"
+                >
+                  <fa-icon
+                    icon="fa-solid fa-eye"
+                    class="mr-2"
+                    color="grey darken-2"
+                  />
+                  Show PASS
+                </v-btn>
+              </v-row>
+            </v-form></v-col
+          >
         </v-row>
       </div>
       <div class="ga__signup_drawing_view__drawing_canvas">
@@ -350,6 +370,21 @@ export default Vue.extend({
     setUpDefaultDrawingsPass() {
       for (let index = 0; index < this.drawingPassCount; index++) {
         this.drawingPasses.push("");
+      }
+    },
+
+    handleSeePass() {
+      for (const drawingPassToBeHidden in this.drawingPassesToBeHidden) {
+        this.drawingPassesToBeHidden[drawingPassToBeHidden] =
+          !this.drawingPassesToBeHidden[drawingPassToBeHidden];
+      }
+      if (!this.drawingPassesToBeHidden[0]) {
+        setTimeout(() => {
+          for (const drawingPassToBeHidden in this.drawingPassesToBeHidden) {
+            this.drawingPassesToBeHidden[drawingPassToBeHidden] =
+              !this.drawingPassesToBeHidden[drawingPassToBeHidden];
+          }
+        }, 400);
       }
     },
 
@@ -694,6 +729,11 @@ $dot-space: 22px;
 
   &__qualifier {
     vertical-align: text-bottom;
+  }
+
+  &__show_pass_row {
+    display: flex;
+    justify-content: center;
   }
 }
 

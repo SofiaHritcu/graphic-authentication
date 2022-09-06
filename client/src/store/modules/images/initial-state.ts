@@ -8,4 +8,5 @@ export const initialState: GA.ImagesState = {
   uploadedImages: [],
   actualUploadedImages: [],
   userUploadedImages: [],
+  bufferPeopleFacesImages: [],
 };

@@ -6,6 +6,7 @@ const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
 const ImagesCategory = require("../model/ImagesCategory");
+const UploadedBufferPeopleFacesImages = require("../model/UploadedBufferPeopleFacesImages");
 
 // Init gfs
 let peopleFacesGridFsStream, peopleFacesGridFsStreamBucket;
@@ -180,6 +181,27 @@ module.exports.people_faces_actual_image_get = (req, res) => {
       }
     }
   );
+};
+
+/**
+ * @route GET ga/api/images/people_faces_images/buffer
+ * @desc Getting the people faces buffer images
+ * @access Public
+ */
+module.exports.people_faces_images_buffer_get = (req, res) => {
+  UploadedBufferPeopleFacesImages.find().then((peopleFacesImagesBuffer) => {
+    if (!peopleFacesImagesBuffer) {
+      return res.status(404).json({
+        msg: "There were no buffer images found.",
+        success: false,
+      });
+    }
+    // if there are any buffer images => send them back
+    res.status(200).json({
+      success: true,
+      peopleFacesImagesBuffer,
+    });
+  });
 };
 
 // ---------------------------- uploaded ------------------------------

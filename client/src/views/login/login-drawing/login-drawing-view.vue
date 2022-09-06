@@ -125,6 +125,25 @@
               </v-avatar>
             </v-col>
           </v-row>
+          <v-row
+            v-if="passIsComplete"
+            class="ga__login_drawing_view__show_pass_row"
+          >
+            <v-btn
+              outlined
+              small
+              :color="`grey darken-2`"
+              @click="handleSeePass"
+              class="mr-3"
+            >
+              <fa-icon
+                icon="fa-solid fa-eye"
+                class="mr-2"
+                color="grey darken-2"
+              />
+              Show PASS
+            </v-btn>
+          </v-row>
         </v-form>
       </v-col>
       <v-col :cols="12" :lg="6" class="ga__login_drawing_view__drawings">
@@ -328,6 +347,20 @@ export default Vue.extend({
       } else {
         this.loginInProgressOverlay = true;
         this.submitLogin();
+      }
+    },
+    handleSeePass() {
+      for (const drawingPassToBeHidden in this.drawingPassesToBeHidden) {
+        this.drawingPassesToBeHidden[drawingPassToBeHidden] =
+          !this.drawingPassesToBeHidden[drawingPassToBeHidden];
+      }
+      if (!this.drawingPassesToBeHidden[0]) {
+        setTimeout(() => {
+          for (const drawingPassToBeHidden in this.drawingPassesToBeHidden) {
+            this.drawingPassesToBeHidden[drawingPassToBeHidden] =
+              !this.drawingPassesToBeHidden[drawingPassToBeHidden];
+          }
+        }, 400);
       }
     },
     hidePassItem() {
@@ -610,6 +643,11 @@ $dot-space: 22px;
   &__own_drawings {
     display: flex;
     align-items: center;
+  }
+
+  &__show_pass_row {
+    display: flex;
+    justify-content: center;
   }
 }
 

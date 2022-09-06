@@ -30,6 +30,7 @@ declare module GA {
     uploadedImages: string[];
     actualUploadedImages: any[];
     userUploadedImages: string[];
+    bufferPeopleFacesImages: string[];
   }
 
   export interface DrawingsState {

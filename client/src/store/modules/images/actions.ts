@@ -173,6 +173,23 @@ export const fetchUserUploadedImages: ActionHandler<
   return response.data.success;
 };
 
+export const fetchBufferPeopleFacesImages: ActionHandler<
+  GA.ImagesState,
+  GA.RootState
+> = async ({ commit }): Promise<void> => {
+  const response = await axios.get(`/ga/api/images/people_faces_images/buffer`);
+  if (response.data.success) {
+    const peopleFacesImagesBufferResponse =
+      response.data.peopleFacesImagesBuffer;
+
+    commit(
+      "setBufferPeopleFacesImages",
+      peopleFacesImagesBufferResponse[0].bufferImagesFilenames
+    );
+  }
+  return response.data.success;
+};
+
 export const actions: ActionTree<GA.ImagesState, GA.RootState> = {
   fetchFaceImagesCategories,
   fetchUploadImage,
@@ -181,4 +198,5 @@ export const actions: ActionTree<GA.ImagesState, GA.RootState> = {
   fetchActualImagesByCategory,
   fetchUploadUserUploadedImages,
   fetchUserUploadedImages,
+  fetchBufferPeopleFacesImages,
 };

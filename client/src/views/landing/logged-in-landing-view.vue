@@ -20,23 +20,40 @@
             IPass
           </div>
           <div>
-            <v-btn
-              outlined
+            <v-badge
               color="teal lighten-2"
-              x-large
-              class="mb-3"
-              v-if="isLoggedIn"
-              @click="handleLogout"
-              >Logout</v-btn
+              offsetX="50"
+              offsetY="20"
+              :content="'Coming soon!'"
+              overlap
             >
+              <v-btn
+                disabled
+                dark
+                color="teal lighten-2"
+                x-large
+                class="white--text mt-3 mb-3"
+                >IPASS MANAGER</v-btn
+              >
+            </v-badge>
           </div>
           <div>
             <v-btn
               outlined
               color="yellow lighten-2"
               x-large
+              class="mb-3"
               @click="handleButtonClick(learnMoreRouteName)"
               >Learn More</v-btn
+            >
+          </div>
+          <div>
+            <v-btn
+              outlined
+              color="deep-orange lighten-1"
+              x-large
+              @click="handleLogout"
+              >Log out</v-btn
             >
           </div>
         </v-col>

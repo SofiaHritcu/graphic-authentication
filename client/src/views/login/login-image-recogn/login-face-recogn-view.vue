@@ -153,6 +153,25 @@
               </v-avatar>
             </v-col>
           </v-row>
+          <v-row
+            v-if="passIsComplete"
+            class="ga__login_face_recogn_view__show_pass_row"
+          >
+            <v-btn
+              outlined
+              small
+              :color="`grey darken-2`"
+              @click="handleSeePass"
+              class="mr-3"
+            >
+              <fa-icon
+                icon="fa-solid fa-eye"
+                class="mr-2"
+                color="grey darken-2"
+              />
+              Show PASS
+            </v-btn>
+          </v-row>
         </v-form>
       </v-col>
       <v-col :cols="12" :lg="6" class="ga__login_face_recogn_view__images">
@@ -248,6 +267,7 @@
 import Vue from "vue";
 import { mapActions, mapGetters } from "vuex";
 import {
+  GA_LOGGED_IN_ROUTE_NAME,
   GA_LOGIN_ROUTE_NAME,
   GA_PEOPLE_IMAGE_CATEGORY,
   GA_UPLOADED_IMAGE_CATEGORY,
@@ -262,6 +282,7 @@ import {
 } from "@/config/error-messages";
 import { transformImagePass } from "@/utils/image-pass-transform";
 import { getImagePassStrengthInterval } from "@/utils/pass-strength-color";
+import { shuffleArray } from "@/utils/array-shuffle";
 
 export default Vue.extend({
   name: "GALoginFaceRecognView",
@@ -297,12 +318,14 @@ export default Vue.extend({
   async created() {
     this.setUpDefaultImagesPass();
     await this.setUpImagesCategories();
+    await this.fetchBufferPeopleFacesImages();
   },
   methods: {
     ...mapActions("images", [
       "fetchFaceImagesCategories",
       "fetchImagesByCategory",
       "fetchUserUploadedImages",
+      "fetchBufferPeopleFacesImages",
     ]),
     ...mapActions("authentication", ["fetchLogin"]),
 
@@ -340,6 +363,20 @@ export default Vue.extend({
       this.currentCategory = imageCategorySelected;
       this.setCurrentImages(imageCategorySelected);
     },
+    handleSeePass() {
+      for (const imagePassToBeHidden in this.imagePassesToBeHidden) {
+        this.imagePassesToBeHidden[imagePassToBeHidden] =
+          !this.imagePassesToBeHidden[imagePassToBeHidden];
+      }
+      if (!this.imagePassesToBeHidden[0]) {
+        setTimeout(() => {
+          for (const imagePassToBeHidden in this.imagePassesToBeHidden) {
+            this.imagePassesToBeHidden[imagePassToBeHidden] =
+              !this.imagePassesToBeHidden[imagePassToBeHidden];
+          }
+        }, 400);
+      }
+    },
     hidePassItem() {
       setTimeout(() => {
         this.imagePassesToBeHidden = {
@@ -374,7 +411,6 @@ export default Vue.extend({
       this.hidePassItem();
     },
     handleClearBtnClick() {
-      this.userName = "";
       (this.imagePasses = [] as any), (this.imagePassLastCompletedIndex = 0);
       this.imagePassesToBeHidden = [] as any;
       this.setUpDefaultImagesPass();
@@ -387,7 +423,7 @@ export default Vue.extend({
       try {
         let authSuccess = await this.fetchLogin(userToBeLoggedIn);
         if (authSuccess) {
-          this.$router.push({ name: GA_WELCOME_ROUTE_NAME });
+          this.$router.push({ name: GA_LOGGED_IN_ROUTE_NAME });
           this.loginInProgressOverlay = false;
         }
       } catch (err) {
@@ -430,7 +466,10 @@ export default Vue.extend({
           ];
 
           this.currentCategory = "my own people";
-          this.currentImages = this.userUploadedImages;
+          this.currentImages = shuffleArray([
+            ...this.userUploadedImages,
+            ...this.bufferPeopleFacesImages,
+          ]);
         }
       } catch (err) {
         this.loginErrorShows = true;
@@ -444,7 +483,12 @@ export default Vue.extend({
     setCurrentImages(imageCategorySelected: string) {
       switch (imageCategorySelected) {
         case GA_UPLOADED_IMAGE_CATEGORY:
-          this.currentImages = this.userUploadedImages;
+          this.currentImages = shuffleArray(
+            (this.currentImages = [
+              ...this.userUploadedImages,
+              ...this.bufferPeopleFacesImages,
+            ])
+          );
           break;
         case GA_PEOPLE_IMAGE_CATEGORY:
           this.currentImages = this.peopleFacesImages;
@@ -470,6 +514,7 @@ export default Vue.extend({
       "peopleFacesImages",
       "uploadedImages",
       "userUploadedImages",
+      "bufferPeopleFacesImages",
     ]),
     onLargerViewPort(): boolean {
       return (
@@ -613,7 +658,7 @@ export default Vue.extend({
 
   &__images {
     &__row {
-      height: 420px;
+      height: 450px;
       overflow-y: auto;
     }
   }
@@ -670,6 +715,11 @@ export default Vue.extend({
   &__own_images {
     display: flex;
     align-items: center;
+  }
+
+  &__show_pass_row {
+    display: flex;
+    justify-content: center;
   }
 }
 

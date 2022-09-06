@@ -65,6 +65,13 @@ export const setUserUploadedImages: Mutation<GA.ImagesState> = (
   state.userUploadedImages = userUploadedImages;
 };
 
+export const setBufferPeopleFacesImages: Mutation<GA.ImagesState> = (
+  state,
+  bufferPeopleFacesImages: string[]
+): void => {
+  state.bufferPeopleFacesImages = bufferPeopleFacesImages;
+};
+
 export const mutations: MutationTree<GA.ImagesState> = {
   setPeopleFacesImages,
   setFoundPeopleFacesImage,
@@ -75,4 +82,5 @@ export const mutations: MutationTree<GA.ImagesState> = {
   setUploadedImages,
   setImagesCategories,
   setUserUploadedImages,
+  setBufferPeopleFacesImages,
 };
