@@ -51,6 +51,13 @@ declare module GA {
     bufferDrawings: string[];
   }
 
+  export interface PassPointsState {
+    uploadedImage: any;
+    uploadedImageContainsText?: boolean;
+    userUploadedImage: string;
+    userUploadedPassPoints: any[];
+  }
+
   // base entities interfaces
   export interface UserBase {
     userName: string;

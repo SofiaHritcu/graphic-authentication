@@ -24,6 +24,9 @@
       logout
     </v-btn>
     <v-overlay :value="showLeavingViewOverlay" z-index="0" opacity="0.85">
+      <div class="ga__app_menu__overlay__animated">
+        <particles-bg type="cobweb" :canvas="{ zIndex: 1 }" color="#455A64" />
+      </div>
       <div class="ga__app_menu__overlay__content">
         <div
           class="text-overline white--text text--lighten-2 ga__app_menu__overlay__centered"
@@ -63,8 +66,11 @@ import {
 } from "@/config/consts";
 import Vue from "vue";
 import { mapActions } from "vuex";
+// @ts-ignore
+import { ParticlesBg } from "particles-bg-vue";
 
 export default Vue.extend({
+  components: { ParticlesBg },
   name: "ClientAppMenu",
 
   data() {
@@ -153,6 +159,20 @@ export default Vue.extend({
       display: flex;
       flex-flow: column wrap;
       align-items: center;
+      z-index: 20;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+      position: relative;
+    }
+
+    &__animated {
+      z-index: 1;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      position: fixed;
     }
 
     &__centered {

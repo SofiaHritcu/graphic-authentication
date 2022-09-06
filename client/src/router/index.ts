@@ -15,6 +15,8 @@ import {
   GA_LOGIN_DRAWING_ROUTE_NAME,
   GA_LOGGED_IN_ROUTE_NAME,
   GA_LOGGED_WELCOME_ROUTE_NAME,
+  GA_SIGNUP_PASS_POINTS_ROUTE_NAME,
+  GA_LOGIN_PASS_POINTS_ROUTE_NAME,
 } from "@/config/consts";
 
 // main views
@@ -24,6 +26,7 @@ const LoggedInLandingView = () =>
   import("@/views/landing/logged-in-landing-view.vue");
 const LearnMoreView = () => import("@/views/utilities/learn-more-view.vue");
 const LoggedInView = () => import("@/views/logged/logged-in-view.vue");
+
 // signup views
 const SignUpView = () => import("@/views/signup/signup-view.vue");
 const SignupIconView = () =>
@@ -33,15 +36,21 @@ const SignupFaceRecognView = () =>
 const SignupDrawingView = () =>
   import("@/views/signup/signup-drawing/signup-drawing-view.vue");
 const UploadFaceView = () =>
-  import("@/views/signup/signup-image-recogn/upload-face-image.vue");
-const LoginView = () => import("@/views/login/login-view.vue");
+  import("@/components/ui/upload-image/upload-face-image.vue");
+const SignupPassPointsView = () =>
+  import("@/views/signup/signup-pass-points/signup-pass-points-view.vue");
+
 // login views
+const LoginView = () => import("@/views/login/login-view.vue");
 const LoginIconView = () =>
   import("@/views/login/login-icon/login-icon-view.vue");
 const LoginFaceRecognView = () =>
   import("@/views/login/login-image-recogn/login-face-recogn-view.vue");
 const LoginDrawingView = () =>
   import("@/views/login/login-drawing/login-drawing-view.vue");
+const LoginPassPointsView = () =>
+  import("@/views/login/login-pass-points/login-pass-points-view.vue");
+
 // not found
 const NotFoundView = () => import("@/views/utilities/not-found-view.vue");
 
@@ -107,6 +116,11 @@ const routes: Array<RouteConfig> = [
         name: GA_SIGNUP_DRAWING_ROUTE_NAME,
         component: SignupDrawingView,
       },
+      {
+        path: "/ga/signup/pass-points",
+        name: GA_SIGNUP_PASS_POINTS_ROUTE_NAME,
+        component: SignupPassPointsView,
+      },
       // login routes
       {
         path: "/ga/login",
@@ -127,6 +141,11 @@ const routes: Array<RouteConfig> = [
         path: "/ga/login/drawing",
         name: GA_LOGIN_DRAWING_ROUTE_NAME,
         component: LoginDrawingView,
+      },
+      {
+        path: "/ga/login/pass_points",
+        name: GA_LOGIN_PASS_POINTS_ROUTE_NAME,
+        component: LoginPassPointsView,
       },
       // other routes
       {
@@ -169,15 +188,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-
-// router.beforeEach(async (to, from, next) => {
-//   if (
-//     (!isLoggedIn && to.name === GA_LOGGED_IN_ROUTE_NAME) ||
-//     GA_LOGGED_WELCOME_ROUTE_NAME
-//   ) {
-//     // redirect the user to the login page
-//     next({ name: GA_LOGIN_ROUTE_NAME });
-//   } else next({ name: to.name ?? GA_WELCOME_ROUTE_NAME });
-// });
 
 export default router;

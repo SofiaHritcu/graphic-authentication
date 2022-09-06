@@ -39,7 +39,7 @@ export const setUploadedFaceImages: Mutation<GA.ImagesState> = (
   state,
   uploadedFaceImageFileName: string
 ): void => {
-  const updatedUploadedFaceImages = [...state.uploadedImages];
+  const updatedUploadedFaceImages = [...state.uploadedFaceImages];
   updatedUploadedFaceImages.push(uploadedFaceImageFileName);
   state.uploadedFaceImages = updatedUploadedFaceImages;
 };

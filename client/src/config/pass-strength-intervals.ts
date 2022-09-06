@@ -78,3 +78,30 @@ export const DRAWINGS_PASS_STRENGTH_INTERVALS = [
     vOpacity: "darken-3",
   },
 ];
+
+export const PASS_POINTS_STRENGTH_INTERVALS = [
+  {
+    lower: 3,
+    upper: 5,
+    qualifying: "You have more than 2 pass points very close to each other!",
+    color: "#C62828",
+    vColor: "red",
+    vOpacity: "darken-3",
+  },
+  {
+    lower: 1,
+    upper: 3,
+    qualifying: "You have pass points that are close to each other!",
+    color: "#FF8F00",
+    vColor: "amber",
+    vOpacity: "darken-3",
+  },
+  {
+    lower: 0,
+    upper: 1,
+    qualifying: "Your IPASS is safe",
+    color: "#2E7D32",
+    vColor: "green",
+    vOpacity: "darken-3",
+  },
+];

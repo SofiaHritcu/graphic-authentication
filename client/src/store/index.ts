@@ -6,6 +6,7 @@ import { images } from "./modules/images";
 import { drawings } from "./modules/drawings";
 import { drawingsSimilarity } from "./modules/drawings_similarity";
 import { bufferDrawings } from "./modules/buffer_drawings";
+import { passPoints } from "./modules/pass_points";
 
 Vue.use(Vuex);
 
@@ -20,6 +21,7 @@ const store: StoreOptions<GA.RootState> = {
     drawings,
     drawingsSimilarity,
     bufferDrawings,
+    passPoints,
   },
 };
 

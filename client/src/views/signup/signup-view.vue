@@ -81,6 +81,7 @@ import {
   GA_SIGNUP_DRAWING_ROUTE_NAME,
   GA_SIGNUP_FACE_RECOGN_ROUTE_NAME,
   GA_SIGNUP_ICON_ROUTE_NAME,
+  GA_SIGNUP_PASS_POINTS_ROUTE_NAME,
   GA_WELCOME_ROUTE_NAME,
 } from "@/config/consts";
 import appMenu from "@/components/ui/app-menu.vue";
@@ -117,11 +118,11 @@ export default Vue.extend({
           loginMethod: GA_LOGIN_DRAWING_ROUTE_NAME,
         },
         {
-          title: "Other Pass",
+          title: "Points Pass",
           // @ts-ignore
-          avatar: require("@/assets/to_be_implemented.png"),
-          colorClass: "yellow",
-          signupMethod: "",
+          avatar: require("@/assets/points_pass.png"),
+          colorClass: "amber",
+          signupMethod: GA_SIGNUP_PASS_POINTS_ROUTE_NAME,
           loginMethod: "",
         },
       ],
@@ -231,6 +232,14 @@ export default Vue.extend({
 
       &--yellow:hover {
         background: linear-gradient(0deg, #fff59d 0%, #fdd835 100%);
+      }
+
+      &--amber {
+        background: linear-gradient(0deg, #ffe082 0%, #ffca28 100%);
+      }
+
+      &--amber:hover {
+        background: linear-gradient(0deg, #ffe082 0%, #ffb300 100%);
       }
 
       &__avatar {

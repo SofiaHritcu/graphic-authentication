@@ -83,7 +83,7 @@
                   class="ga__signup_drawing_view__drawings_title"
                 >
                   <div class="grey--text text--darken-1" v-if="!passIsComplete">
-                    Choose icons for your
+                    Draw your
                     <span
                       class="text-overline font-weight-light white--text ga__signup_drawing_view__drawings_title__pass"
                       >IPASS</span
@@ -170,12 +170,15 @@
       </template>
     </v-snackbar>
     <v-overlay :value="signupInProgressOverlay" :opacity="0.95">
+      <div class="ga__signup_drawing_view__overlay__animated">
+        <particles-bg type="cobweb" :canvas="{ zIndex: 1 }" color="#455A64" />
+      </div>
       <v-progress-circular
         indeterminate
         size="64"
         v-if="signupInProgress"
       ></v-progress-circular>
-      <div class="ga__signup_drawing_view__overlay_content" v-else>
+      <div class="ga__signup_drawing_view__overlay__content" v-else>
         <div v-if="signupSucceeded">
           <div>YOU'VE BEEN SIGNED UP!</div>
           <div
@@ -270,14 +273,13 @@ import {
   SIGNUP_FAILED_MSG,
 } from "@/config/error-messages";
 import { mapActions, mapGetters } from "vuex";
-import {
-  transformDrawingPass,
-  transformDrawingPassSignup,
-} from "@/utils/drawing-pass-transform";
+import { transformDrawingPassSignup } from "@/utils/drawing-pass-transform";
 import { sameSimilarityDrawings } from "@/store/modules/drawings_similarity/getters";
+// @ts-ignore
+import { ParticlesBg } from "particles-bg-vue";
 
 export default Vue.extend({
-  components: { DrawingCanvas },
+  components: { DrawingCanvas, ParticlesBg },
   name: "GASignupDrawingView",
 
   data() {
@@ -628,8 +630,22 @@ $dot-space: 22px;
     display: inline-block;
   }
 
-  &__overlay_content {
+  &__overlay__content {
     text-align: center;
+    z-index: 20;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    position: relative;
+  }
+
+  &__overlay__animated {
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
   }
 
   &__similarity_images {

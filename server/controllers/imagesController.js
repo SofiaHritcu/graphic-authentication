@@ -1,4 +1,3 @@
-const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -6,7 +5,6 @@ const crypto = require("crypto");
 const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
-const methodOverride = require("method-override");
 const ImagesCategory = require("../model/ImagesCategory");
 
 // Init gfs

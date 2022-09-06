@@ -11,8 +11,6 @@ export const fetchLogin: ActionHandler<
     const gaToken = response.data.token;
     const loggedInUser = response.data.user;
 
-    console.log(loggedInUser);
-
     // store the token on local storage
     localStorage.setItem("GA-token", gaToken);
     localStorage.setItem("GA-name", loggedInUser.name ?? "");

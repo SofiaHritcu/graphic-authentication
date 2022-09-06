@@ -273,6 +273,7 @@ export default Vue.extend({
         return;
       }
 
+      this.hasAnsweredBringDrawings = !this.hasAnsweredBringDrawings;
       this.foundUserDrawings = !this.foundUserDrawings;
       await this.fetchUserUploadedDrawings(this.userName);
 
@@ -281,7 +282,6 @@ export default Vue.extend({
         ...this.userUploadedDrawings,
         ...this.bufferDrawings,
       ]);
-      console.log(this.drawings);
     },
     setUpDefaultDrawingsPass() {
       for (let index = 0; index < this.drawingsPassCount; index++) {

@@ -12,6 +12,8 @@ const iconsRoutes = require("./routes/api/iconsRoutes");
 const imagesRoutes = require("./routes/api/imagesRoutes");
 const drawingsRoutes = require("./routes/api/drawingsRoutes");
 const bufferDrawingsRoutes = require("./routes/api/bufferDrawingsRoutes");
+const passPointRoutes = require("./routes/api/passPointRoutes");
+const textRecognitionRoutes = require("./routes/api/textRecognitionRoutes");
 const { addPassportStrategy } = require("./middleware/authMiddleware");
 
 // -------------- INITIALIZE THE APP -----------
@@ -82,6 +84,12 @@ app.use("/ga/api/drawings", drawingsRoutes);
 
 // add buffer drawings routes
 app.use("/ga/api/buffer_drawings", bufferDrawingsRoutes);
+
+// add pass point routes
+app.use("/ga/api/pass_point", passPointRoutes);
+
+// add text recognition routes
+app.use("/ga/api/text_recogn", textRecognitionRoutes);
 
 // -------------- ENV ----------------------
 
