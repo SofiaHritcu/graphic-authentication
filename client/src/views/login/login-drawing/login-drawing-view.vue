@@ -112,10 +112,14 @@
               :key="index"
               class="ga__login_drawing_view__drawing__content dotted_background"
             >
+              <div
+                v-if="drawingPassesToBeHidden[index]"
+                class="pass_item__hidden"
+              ></div>
               <v-avatar
                 :size="getSelectableDrawingsSize"
                 rounded="lg"
-                v-if="drawingPass"
+                v-if="!drawingPassesToBeHidden[index] && drawingPass"
               >
                 <v-img :src="getDrawingUrl(drawingPass)" />
               </v-avatar>
@@ -241,6 +245,7 @@ export default Vue.extend({
       drawingsPassCount: DRAWINGS_PASS_COUNT,
       drawingPasses: [] as any,
       drawingPassLastCompletedIndex: 0,
+      drawingPassesToBeHidden: [] as any,
       passAfterTransformation: "",
       foundUserDrawings: false,
       hasAnsweredBringDrawings: false,
@@ -291,6 +296,7 @@ export default Vue.extend({
     handleClearBtnClick() {
       (this.drawingPasses = [] as any),
         (this.drawingPassLastCompletedIndex = 0);
+      this.drawingPassesToBeHidden = [] as any;
       this.setUpDefaultDrawingsPass();
     },
     async submitLogin() {
@@ -323,6 +329,14 @@ export default Vue.extend({
         this.loginInProgressOverlay = true;
         this.submitLogin();
       }
+    },
+    hidePassItem() {
+      setTimeout(() => {
+        this.drawingPassesToBeHidden = {
+          ...this.drawingPassesToBeHidden,
+          [this.drawingPassLastCompletedIndex - 1]: true,
+        };
+      }, 200);
     },
     handleDrawingClick(drawingFileName: string) {
       if (this.logoVisible) {
@@ -362,6 +376,7 @@ export default Vue.extend({
           this.userUploadedDrawings
         );
       }
+      this.hidePassItem();
     },
     getDrawingUrl(currentDrawingFilename: string): string {
       const isUserUploadedDrawing = (
@@ -391,7 +406,9 @@ export default Vue.extend({
 
     onLargerViewPort(): boolean {
       return (
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "lg" ||
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "xl"
       );
     },
@@ -597,6 +614,7 @@ $dot-space: 22px;
 }
 
 .dotted_background {
+  padding: 0;
   background: linear-gradient(
         90deg,
         $bg-color ($dot-space - $dot-size),
@@ -616,5 +634,17 @@ $dot-space: 22px;
   flex-basis: 100%;
   height: 0;
   text-align: center;
+}
+
+.pass_item__hidden {
+  background: conic-gradient(
+    #4db6ac 0%,
+    #9fa8da 25%,
+    #ff7043 50%,
+    #fff176 80%,
+    #4db6ac 100%
+  );
+  height: 100%;
+  width: 100%;
 }
 </style>

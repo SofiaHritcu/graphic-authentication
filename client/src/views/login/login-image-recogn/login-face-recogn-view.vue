@@ -146,7 +146,7 @@
                 v-if="imagePass"
               >
                 <div
-                  v-if="iconPassesToBeHidden[index]"
+                  v-if="imagePassesToBeHidden[index]"
                   class="pass_item__hidden"
                 ></div>
                 <v-img v-else :src="getUrlByCurrentCategory(imagePass)" />
@@ -282,7 +282,7 @@ export default Vue.extend({
       currentCategory: "",
       imagePasses: [] as any,
       imageItems: [],
-      iconPassesToBeHidden: [] as any,
+      imagePassesToBeHidden: [] as any,
       imagePassLastCompletedIndex: 0,
       passAfterTransformation: "",
       imagePassStrengthInterval: null as any,
@@ -342,8 +342,8 @@ export default Vue.extend({
     },
     hidePassItem() {
       setTimeout(() => {
-        this.iconPassesToBeHidden = {
-          ...this.iconPassesToBeHidden,
+        this.imagePassesToBeHidden = {
+          ...this.imagePassesToBeHidden,
           [this.imagePassLastCompletedIndex - 1]: true,
         };
       }, 200);
@@ -376,7 +376,7 @@ export default Vue.extend({
     handleClearBtnClick() {
       this.userName = "";
       (this.imagePasses = [] as any), (this.imagePassLastCompletedIndex = 0);
-      this.iconPassesToBeHidden = [] as any;
+      this.imagePassesToBeHidden = [] as any;
       this.setUpDefaultImagesPass();
     },
     async submitLogin() {

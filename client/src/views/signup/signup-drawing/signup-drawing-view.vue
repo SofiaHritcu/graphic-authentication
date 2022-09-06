@@ -91,10 +91,10 @@
                   </div>
                   <div class="grey--text text--darken-1" v-if="passIsComplete">
                     Your
-                    <span
+                    <!-- <span
                       class="text-overline font-weight-light white--text ga__signup_drawing_view__drawings_title__pass"
                       >IPASS</span
-                    >
+                    > -->
                     is complete!
                   </div>
                 </v-col>
@@ -114,7 +114,16 @@
                   <div
                     class="ga__signup_drawing_view__drawing__content dotted_background"
                   >
-                    <v-img :src="drawingPass" height="100px" width="100" />
+                    <div
+                      v-if="drawingPassesToBeHidden[index]"
+                      class="pass_item__hidden"
+                    ></div>
+                    <v-img
+                      v-else
+                      :src="drawingPass"
+                      height="100px"
+                      width="100px"
+                    />
                   </div>
                 </v-col>
               </v-row> </v-form
@@ -307,6 +316,7 @@ export default Vue.extend({
       drawingPassCount: DRAWINGS_PASS_COUNT,
       drawingPasses: [] as any[],
       drawingPassLastCompletedIndex: 0,
+      drawingPassesToBeHidden: [] as any,
       passAfterTransformation: "",
       signupInProgress: false,
       drawingPassStrengthInterval: null as any,
@@ -343,6 +353,15 @@ export default Vue.extend({
       }
     },
 
+    hidePassItem() {
+      setTimeout(() => {
+        this.drawingPassesToBeHidden = {
+          ...this.drawingPassesToBeHidden,
+          [this.drawingPassLastCompletedIndex - 1]: true,
+        };
+      }, 300);
+    },
+
     handleDrawingSave(isEmpty: boolean, drawingItem: any) {
       if (!isEmpty) {
         if (this.logoVisible) {
@@ -366,6 +385,7 @@ export default Vue.extend({
         this.signupErrorShows = true;
         this.signupErrorMsg = "You haven't drawn anything yet!";
       }
+      this.hidePassItem();
     },
 
     handleClearBtnClick() {
@@ -374,6 +394,7 @@ export default Vue.extend({
       this.email = "";
       this.drawingPasses = [] as any;
       this.drawingPassLastCompletedIndex = 0;
+      this.drawingPassesToBeHidden = [] as any;
       this.setUpDefaultDrawingsPass();
     },
 
@@ -461,7 +482,9 @@ export default Vue.extend({
 
     onLargerViewPort(): boolean {
       return (
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "lg" ||
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "xl"
       );
     },
@@ -690,5 +713,17 @@ $dot-space: 22px;
   flex-basis: 100%;
   height: 0;
   text-align: center;
+}
+
+.pass_item__hidden {
+  background: conic-gradient(
+    #4db6ac 0%,
+    #9fa8da 25%,
+    #ff7043 50%,
+    #fff176 80%,
+    #4db6ac 100%
+  );
+  height: 100%;
+  width: 100%;
 }
 </style>
