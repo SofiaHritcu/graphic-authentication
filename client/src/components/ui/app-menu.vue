@@ -123,10 +123,7 @@ export default Vue.extend({
         ];
       }
 
-      return [
-        { title: "home", routeName: GA_LOGGED_WELCOME_ROUTE_NAME },
-        { title: "learn", routeName: GA_LEARN_MORE_ROUTE_NAME },
-      ];
+      return [{ title: "home", routeName: GA_LOGGED_WELCOME_ROUTE_NAME }];
     },
   },
 });

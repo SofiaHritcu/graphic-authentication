@@ -415,7 +415,7 @@ export default Vue.extend({
           currentCategoryUrl = "people_faces_actual_image";
           break;
       }
-      return `http://localhost:8080/ga/api/images/${currentCategoryUrl}/${currentImageFilename}`;
+      return `https://sleepy-hollows-64004.herokuapp.com/ga/api/images/${currentCategoryUrl}/${currentImageFilename}`;
     },
 
     handleSeePass() {

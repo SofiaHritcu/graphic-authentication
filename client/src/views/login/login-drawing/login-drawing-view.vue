@@ -416,9 +416,9 @@ export default Vue.extend({
         this.userUploadedDrawings as string[]
       ).find((drawing) => currentDrawingFilename === drawing);
       if (isUserUploadedDrawing) {
-        return `http://localhost:8080/ga/api/drawings/drawing_actual/${currentDrawingFilename}`;
+        return `https://sleepy-hollows-64004.herokuapp.com/ga/api/drawings/drawing_actual/${currentDrawingFilename}`;
       }
-      return `http://localhost:8080/ga/api/buffer_drawings/buffer_drawing_actual/${currentDrawingFilename}`;
+      return `https://sleepy-hollows-64004.herokuapp.com/ga/api/buffer_drawings/buffer_drawing_actual/${currentDrawingFilename}`;
     },
     areAllInUserUploadedDrawings(): boolean {
       const drawingPassesArray = Object.entries(this.drawingPasses).map(

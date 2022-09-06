@@ -182,7 +182,7 @@
             <v-img
               maxHeight="500"
               @click="drawPassPoint"
-              :src="`http://localhost:8080/ga/api/pass_point/image_actual/${uploadedImage}`"
+              :src="`https://sleepy-hollows-64004.herokuapp.com/ga/api/pass_point/image_actual/${uploadedImage}`"
               id="uploaded_image"
             />
           </div>

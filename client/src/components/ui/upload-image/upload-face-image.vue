@@ -90,7 +90,7 @@
         <div class="ga__upload_face_image_view__image_wrapper">
           <v-avatar :size="getUploadedImageSize" rounded="lg">
             <v-img
-              :src="`http://localhost:8080/ga/api/images/uploaded_actual_image/${uploadedFaceImage}`"
+              :src="`https://sleepy-hollows-64004.herokuapp.com/ga/api/images/uploaded_actual_image/${uploadedFaceImage}`"
             />
           </v-avatar>
         </div>
