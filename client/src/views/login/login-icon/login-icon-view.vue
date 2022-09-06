@@ -102,8 +102,12 @@
               class="ga__login_icon_view__icon"
             >
               <div class="ga__login_icon_view__icon__content">
+                <div
+                  v-if="iconPassesToBeHidden[index]"
+                  class="pass_item__hidden"
+                ></div>
                 <fa-icon
-                  v-if="iconPass"
+                  v-if="!iconPassesToBeHidden[index] && iconPass"
                   :icon="`fa-solid fa-${iconPass}`"
                   color="white"
                   size="2x"
@@ -225,6 +229,7 @@ export default Vue.extend({
       iconPassCount: ICONS_PASS_COUNT,
       iconPasses: [] as any,
       iconItems: [],
+      iconPassesToBeHidden: [] as any,
       iconPassLastCompletedIndex: 0,
       passAfterTransformation: "",
       iconPassStrengthInterval: null as any,
@@ -257,6 +262,7 @@ export default Vue.extend({
     setUpDefaultIconsPass() {
       for (let index = 0; index < this.iconPassCount; index++) {
         this.iconPasses.push("");
+        this.iconPassesToBeHidden.push(false);
       }
     },
     handleIconCategoryChange(iconCategorySelected: string) {
@@ -268,6 +274,14 @@ export default Vue.extend({
         (ic: GA.IconCategoryBase) => ic.category === iconCategorySelected
       ).icons;
       this.iconItems = iconsSelectedCategory;
+    },
+    hidePassItem() {
+      setTimeout(() => {
+        this.iconPassesToBeHidden = {
+          ...this.iconPassesToBeHidden,
+          [this.iconPassLastCompletedIndex - 1]: true,
+        };
+      }, 200);
     },
     handleIconClick(iconItem: string) {
       if (this.logoVisible) {
@@ -292,10 +306,12 @@ export default Vue.extend({
           this.passAfterTransformation
         );
       }
+      this.hidePassItem();
     },
     handleClearBtnClick() {
       this.userName = "";
       (this.iconPasses = [] as any), (this.iconPassLastCompletedIndex = 0);
+      this.iconPassesToBeHidden = [] as any;
       this.setUpDefaultIconsPass();
     },
     async submitLogin() {
@@ -333,7 +349,9 @@ export default Vue.extend({
     ...mapGetters("icons", ["iconsCategories"]),
     onLargerViewPort(): boolean {
       return (
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "lg" ||
+        // @ts-ignore
         this.$vuetify.breakpoint.name === "xl"
       );
     },
@@ -527,5 +545,17 @@ export default Vue.extend({
   flex-basis: 100%;
   height: 0;
   text-align: center;
+}
+
+.pass_item__hidden {
+  background: conic-gradient(
+    #4db6ac 0%,
+    #9fa8da 25%,
+    #ff7043 50%,
+    #fff176 80%,
+    #4db6ac 100%
+  );
+  height: 100%;
+  width: 100%;
 }
 </style>
